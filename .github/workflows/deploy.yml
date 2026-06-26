@@ -35,4 +35,4 @@ jobs:
       name: github-pages
       url: https://plus254.co.ke
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
