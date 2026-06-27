@@ -8,40 +8,10 @@
     </div>
     <div class="featured-chart">
       <div class="chart-wrapper">
-        <div class="chart-fallback" hidden>
-          <p>Chart could not be loaded. <a href="https://datawrapper.dwcdn.net/tKoO3/11/" target="_blank" rel="noopener noreferrer">Open in new tab</a>.</p>
+        <div class="chart-embed">
+          <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/tKoO3/embed.js" charset="utf-8"></script>
+          <noscript><img src="https://datawrapper.dwcdn.net/tKoO3/full.png" alt="Mombasa Tea Auction Supply and Demand Index" /></noscript>
         </div>
-        <iframe
-          title="Mombasa Tea Auction Supply and Demand Index"
-          aria-label="Line chart"
-          id="datawrapper-chart-tKoO3"
-          src="https://datawrapper.dwcdn.net/tKoO3/11/"
-          frameborder="0"
-          style="width: 0; min-width: 100% !important; border: none;"
-          height="400"
-          loading="lazy"
-          scrolling="no"
-          data-external="1"
-          onerror="this.previousElementSibling.hidden = false; this.hidden = true;"
-        ></iframe>
-        <script type="text/javascript">
-          (function() {
-            function resize() {
-              window.addEventListener("message", function(e) {
-                if (e.data["datawrapper-height"] !== void 0) {
-                  var t = document.querySelectorAll("iframe");
-                  for (var n in e.data["datawrapper-height"])
-                    for (var r = 0, i; i = t[r]; r++)
-                      if (i.contentWindow === e.source) {
-                        var a = e.data["datawrapper-height"][n] + "px";
-                        i.style.height = a;
-                      }
-                }
-              });
-            }
-            resize();
-          })();
-        </script>
       </div>
     </div>
   </div>
@@ -124,30 +94,17 @@
     width: 100%;
   }
 
-  .chart-wrapper iframe {
-    display: block;
-  }
-
-  .chart-fallback {
+  .chart-embed {
+    min-height: 420px;
     background: var(--color-green-bg);
-    border: 1px solid rgba(31, 111, 84, 0.35);
-    padding: var(--space-xl) var(--space-md);
-    text-align: center;
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    color: var(--color-warm-mid);
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid rgba(31, 111, 84, 0.2);
+    border-radius: 6px;
   }
 
-  .chart-fallback a {
-    color: var(--color-green);
-  }
-
-  .chart-fallback[hidden] {
-    display: none;
+  .chart-embed noscript img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   @media (max-width: 768px) {
