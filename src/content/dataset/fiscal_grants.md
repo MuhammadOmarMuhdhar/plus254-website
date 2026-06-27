@@ -2,9 +2,9 @@
 title: "Government Grants"
 description: "Monthly government grants received"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/fiscal_grants"
+endpoint: "GET /v1/datasets/fiscal_grants"
 rows: 893
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/2118703754_Revenue%20and%20Expenditure.csv"
 ---
 

@@ -107,12 +107,14 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-    transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out), transform 0.15s var(--ease-out);
+    transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out), transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart);
   }
 
   .action-item:hover {
     border-color: var(--color-green);
     background-color: #66b392;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
 
   .action-item:active {

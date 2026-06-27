@@ -18,7 +18,7 @@ const topicNames: Record<string, string> = {
   agriculture: "Agriculture",
   governance: "Governance",
 };
-const topicLabel = topicNames[entry.data.topic] ?? entry.data.topic;
+const topicLabel = topicNames[entry.data.category] ?? entry.data.category;
 ---
 
 <BaseLayout title={`${entry.data.title} — plus254`}>

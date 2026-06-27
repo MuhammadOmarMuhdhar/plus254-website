@@ -2,9 +2,9 @@
 title: "Apparent Consumption"
 description: "Apparent consumption of agricultural commodities across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/apparent_consumption"
+endpoint: "GET /v1/datasets/apparent_consumption"
 rows: 62
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

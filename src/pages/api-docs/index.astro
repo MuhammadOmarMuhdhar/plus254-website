@@ -13,7 +13,7 @@ import APIDocsLayout from "../../components/APIDocsLayout.astro";
       <span class="eyebrow">Overview</span>
       <div class="narrative">
         <p>
-          Make a GET request to <code>/v1/&#123;topic&#125;/&#123;dataset&#125;</code>.
+          Make a GET request to <code>/v1/datasets?category=economy</code> to list available datasets.
           All responses are paginated JSON with a consistent structure across endpoints.
         </p>
         <p>
@@ -148,12 +148,14 @@ import APIDocsLayout from "../../components/APIDocsLayout.astro";
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-    transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out), transform 0.15s var(--ease-out);
+    transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out), transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart);
   }
 
   .ds-card:hover {
     border-color: #1f6f54;
     background-color: #66b392;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
 
   .ds-card:active {

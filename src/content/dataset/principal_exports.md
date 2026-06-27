@@ -2,9 +2,9 @@
 title: "Principal Exports — Volume, Value, Unit Prices"
 description: "Monthly volume, value, and average unit prices of principal exports (coffee, tea, horticulture)"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/principal_exports"
+endpoint: "GET /v1/datasets/principal_exports"
 rows: 2988
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/766913717_Principal%20Exports_Volume,%20Value%20and%20Unit%20Prices.csv"
 ---
 

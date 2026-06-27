@@ -2,9 +2,9 @@
 title: "Balance of Payments (Annual)"
 description: "Annual balance of payments statement"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/bop_annual"
+endpoint: "GET /v1/datasets/bop_annual"
 rows: 357
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1657248905_Balance%20of%20Payments%20Statement%20(Annual%20Calender%20Year).csv"
 ---
 

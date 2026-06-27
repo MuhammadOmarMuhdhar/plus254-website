@@ -2,9 +2,9 @@
 title: "GOK Fertilizer Subsidy Expenditure"
 description: "Expenditure on the government fertilizer subsidy program across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/gok_fertilizer_subsidy_expenditure"
+endpoint: "GET /v1/datasets/gok_fertilizer_subsidy_expenditure"
 rows: 13
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

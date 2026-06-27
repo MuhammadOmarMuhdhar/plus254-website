@@ -2,9 +2,9 @@
 title: "Livestock Population"
 description: "Livestock population counts across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/livestock_population"
+endpoint: "GET /v1/datasets/livestock_population"
 rows: 8381
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

@@ -2,9 +2,9 @@
 title: "Import Quantity"
 description: "Quantity of agricultural imports across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/import_quantity"
+endpoint: "GET /v1/datasets/import_quantity"
 rows: 10
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

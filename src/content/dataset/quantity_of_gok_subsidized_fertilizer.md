@@ -2,9 +2,9 @@
 title: "GOK Subsidized Fertilizer Quantity"
 description: "Quantity of government-subsidized fertilizer distributed across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/quantity_of_gok_subsidized_fertilizer"
+endpoint: "GET /v1/datasets/quantity_of_gok_subsidized_fertilizer"
 rows: 13
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

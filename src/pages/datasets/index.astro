@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 const datasets = await getCollection("dataset");
 const grouped = datasets.reduce(
   (acc, d) => {
-    (acc[d.data.topic] ??= []).push(d);
+    (acc[d.data.category] ??= []).push(d);
     return acc;
   },
   {} as Record<string, typeof datasets>,
@@ -18,8 +18,7 @@ const topicNames: Record<string, string> = {
 };
 const topicOrder = ["economy", "agriculture", "governance"];
 const sources = [...new Set(datasets.map((d) => d.data.source))];
-const topicPlaceholder = "{topic}";
-const datasetPlaceholder = "{dataset}";
+const categoryPlaceholder = "{category}";
 ---
 
 <BaseLayout title="Datasets — plus254">
@@ -33,7 +32,7 @@ const datasetPlaceholder = "{dataset}";
       <div class="narrative">
         <p>
           This is the full catalog of every dataset available through the +254 API.
-          Datasets are organized by topic: Economy, Agriculture, and Governance.
+          Datasets are organized by category: Economy, Agriculture, and Governance.
         </p>
         <p>
           Every dataset follows the same tidy long-form structure: identifier columns
@@ -44,7 +43,7 @@ const datasetPlaceholder = "{dataset}";
         </p>
         <p>
           The catalog currently contains {datasets.length} datasets sourced from {sources.length} official publications.
-          Every dataset is accessible via <code>GET /v1/{topicPlaceholder}/{datasetPlaceholder}</code>.
+          List all datasets via <code>GET /v1/datasets?category={categoryPlaceholder}</code>.
           Responses are paginated JSON with the same structure across all endpoints.
           Browse the <a href="/api-docs/">API reference</a> for authentication,
           query parameters, and response formats.
@@ -181,12 +180,14 @@ const datasetPlaceholder = "{dataset}";
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-    transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out), transform 0.15s var(--ease-out);
+    transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out), transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart);
   }
 
   .ds-card:hover {
     border-color: #1f6f54;
     background-color: #66b392;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
 
   .ds-card:active {

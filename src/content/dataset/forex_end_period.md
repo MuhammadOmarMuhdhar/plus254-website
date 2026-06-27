@@ -2,9 +2,9 @@
 title: "Monthly Exchange Rates (End Period)"
 description: "Monthly exchange rates of major currencies against KES (end period)"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/forex_end_period"
+endpoint: "GET /v1/datasets/forex_end_period"
 rows: 7970
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/exchange_rates/677633335_Monthly%20exchange%20rate%20(end%20period).csv"
 ---
 

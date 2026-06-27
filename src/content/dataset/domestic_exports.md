@@ -2,9 +2,9 @@
 title: "Value of Selected Domestic Exports"
 description: "Monthly value of selected domestic export commodities"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/domestic_exports"
+endpoint: "GET /v1/datasets/domestic_exports"
 rows: 2987
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1306010805_Value%20of%20Selected%20Domestic%20Exports%20-%20Selected%20Comms.csv"
 ---
 

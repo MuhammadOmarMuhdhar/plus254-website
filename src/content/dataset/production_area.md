@@ -2,9 +2,9 @@
 title: "Production Area"
 description: "Area under agricultural production across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/production_area"
+endpoint: "GET /v1/datasets/production_area"
 rows: 1146
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

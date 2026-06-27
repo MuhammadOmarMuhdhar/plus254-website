@@ -2,9 +2,9 @@
 title: "Total Value of Exports"
 description: "Total value of agricultural exports across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/total_value_of_export"
+endpoint: "GET /v1/datasets/total_value_of_export"
 rows: 94
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

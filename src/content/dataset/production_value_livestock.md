@@ -2,9 +2,9 @@
 title: "Production Value (Livestock)"
 description: "Value of livestock production across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/production_value_livestock"
+endpoint: "GET /v1/datasets/production_value_livestock"
 rows: 2156
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

@@ -2,9 +2,9 @@
 title: "Value of Imports from Africa"
 description: "Monthly value of direct imports from selected African countries"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/imports_africa"
+endpoint: "GET /v1/datasets/imports_africa"
 rows: 2710
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1764709360_Value%20of%20Direct%20Imports%20from%20Selected%20African%20Countries.csv"
 ---
 

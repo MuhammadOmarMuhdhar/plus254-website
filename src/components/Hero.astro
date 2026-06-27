@@ -64,7 +64,7 @@
     text-decoration: none;
     text-align: center;
     border: 1.5px solid var(--color-green);
-    transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.15s var(--ease-out);
+    transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart);
   }
 
   .hero-btns .btn-primary {
@@ -75,6 +75,8 @@
   .hero-btns .btn-primary:hover {
     background: transparent;
     color: var(--color-green);
+    transform: scale(1.03);
+    box-shadow: var(--shadow-sm);
   }
 
   .hero-btns .btn-secondary {
@@ -85,11 +87,13 @@
   .hero-btns .btn-secondary:hover {
     background: var(--color-green);
     color: #fff;
+    transform: scale(1.03);
+    box-shadow: var(--shadow-sm);
   }
 
   .hero-btns .btn-primary:active,
   .hero-btns .btn-secondary:active {
-    transform: translateY(1px);
+    transform: scale(0.97);
   }
 
   .hero-btns .btn-primary:focus-visible,

@@ -2,9 +2,9 @@
 title: "Domestic Debt by Instrument"
 description: "Monthly domestic debt breakdown by instrument (T-bills, bonds, etc.)"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/domestic_debt"
+endpoint: "GET /v1/datasets/domestic_debt"
 rows: 2191
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/1263030173_Domestic%20Debt%20by%20Instrument.csv"
 ---
 

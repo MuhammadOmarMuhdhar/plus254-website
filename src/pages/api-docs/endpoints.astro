@@ -20,6 +20,7 @@ import APIDocsLayout from "../../components/APIDocsLayout.astro";
           List all available datasets. Returns paginated metadata and an array
           of dataset objects. Each entry includes the dataset's <code>config</code>
           name &mdash; use it to fetch data or schema for a specific dataset.
+          Use <code>category</code> to filter by topic.
         </p>
       </div>
 
@@ -29,6 +30,7 @@ import APIDocsLayout from "../../components/APIDocsLayout.astro";
           <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
         </thead>
         <tbody>
+          <tr><td data-label="Parameter"><code>category</code></td><td data-label="Type">string</td><td data-label="Default">—</td><td data-label="Description">Filter by topic (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)</td></tr>
           <tr><td data-label="Parameter"><code>limit</code></td><td data-label="Type">integer</td><td data-label="Default">100</td><td data-label="Description">Records to return (1&ndash;100)</td></tr>
           <tr><td data-label="Parameter"><code>offset</code></td><td data-label="Type">integer</td><td data-label="Default">0</td><td data-label="Description">Records to skip</td></tr>
         </tbody>
@@ -72,7 +74,7 @@ print(response.json())</code></pre>
     &#123;
       "config": "forex_period_average",
       "name": "Monthly Exchange Rates (Period Average)",
-      "slug": "economy",
+      "category": "economy",
       "description": "Monthly exchange rates of major currencies against KES",
       "source": "Central Bank of Kenya",
       "url": "https://www.centralbank.go.ke/..."
@@ -211,7 +213,7 @@ print(response.json())</code></pre>
       <pre class="code-block response-block"><code>&#123;
   "config": "forex_period_average",
   "name": "Monthly Exchange Rates (Period Average)",
-  "slug": "economy",
+  "category": "economy",
   "description": "Monthly exchange rates of major currencies against KES (period average)",
   "source": "Central Bank of Kenya",
   "url": "https://www.centralbank.go.ke/..."
@@ -259,7 +261,7 @@ print(response.json())</code></pre>
       <div class="response-indicator">Response (abbreviated)</div>
       <pre class="code-block response-block"><code>&#123;
   "config": "forex_period_average",
-  "slug": "economy",
+  "category": "economy",
   "name": "Monthly Exchange Rates (Period Average)",
   "source": "Central Bank of Kenya",
   "row_count": 7980,

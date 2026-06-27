@@ -2,9 +2,9 @@
 title: "Value of Imports by Commodity"
 description: "Monthly value of direct imports classified by SITC sections"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/imports_commodity"
+endpoint: "GET /v1/datasets/imports_commodity"
 rows: 3320
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1126743207_Value%20of%20Direct%20Imports%20by%20Commodities.csv"
 ---
 

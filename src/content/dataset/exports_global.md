@@ -2,9 +2,9 @@
 title: "Value of Exports to Rest of World"
 description: "Monthly value of exports to selected countries outside Africa"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/exports_global"
+endpoint: "GET /v1/datasets/exports_global"
 rows: 4067
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/310335175_Value%20of%20Exports%20to%20Selected%20Rest%20of%20World%20Countries.csv"
 ---
 

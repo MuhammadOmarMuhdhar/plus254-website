@@ -2,9 +2,9 @@
 title: "Cane Deliveries"
 description: "Sugarcane deliveries to millers across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/cane_deliveries"
+endpoint: "GET /v1/datasets/cane_deliveries"
 rows: 125
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

@@ -2,9 +2,9 @@
 title: "Political Governance & Economic Investments"
 description: "Political governance and economic investment indicators in agriculture across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/political_governance_economic_investments"
+endpoint: "GET /v1/datasets/political_governance_economic_investments"
 rows: 1
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

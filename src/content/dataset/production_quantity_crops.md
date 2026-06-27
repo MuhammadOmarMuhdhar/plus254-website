@@ -2,9 +2,9 @@
 title: "Production Quantity (Crops)"
 description: "Quantity of crop production across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/production_quantity_crops"
+endpoint: "GET /v1/datasets/production_quantity_crops"
 rows: 5352
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

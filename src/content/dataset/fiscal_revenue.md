@@ -2,9 +2,9 @@
 title: "Government Revenue"
 description: "Monthly government revenue breakdown"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/fiscal_revenue"
+endpoint: "GET /v1/datasets/fiscal_revenue"
 rows: 2326
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/2118703754_Revenue%20and%20Expenditure.csv"
 ---
 

@@ -2,9 +2,9 @@
 title: "Quarterly GDP"
 description: "Quarterly GDP estimates by sector"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/gdp_quarterly"
+endpoint: "GET /v1/datasets/gdp_quarterly"
 rows: 2725
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/national_accounts_statistics/1084903161_Quarterly%20GDP.csv"
 ---
 

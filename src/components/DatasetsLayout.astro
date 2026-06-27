@@ -10,7 +10,7 @@ const { activeSlug } = Astro.props;
 const datasets = await getCollection("dataset");
 const grouped = datasets.reduce(
   (acc, d) => {
-    (acc[d.data.topic] ??= []).push(d);
+    (acc[d.data.category] ??= []).push(d);
     return acc;
   },
   {} as Record<string, typeof datasets>,
@@ -26,7 +26,7 @@ const topicOrder = ["economy", "agriculture", "governance"];
 
 const isLanding = !activeSlug;
 const activeTopic = activeSlug
-  ? datasets.find((d) => d.id === activeSlug)?.data.topic
+  ? datasets.find((d) => d.id === activeSlug)?.data.category
   : undefined;
 
 const activeLabel = activeSlug

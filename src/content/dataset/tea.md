@@ -2,9 +2,9 @@
 title: "Tea Production and Exports"
 description: "Weekly tea auction data — production, export volume, and prices"
 source: "Tea Board of Kenya"
-endpoint: "GET /agriculture/tea"
+endpoint: "GET /v1/datasets/tea"
 rows: 84
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://eatta.co.ke/statistics"
 ---
 

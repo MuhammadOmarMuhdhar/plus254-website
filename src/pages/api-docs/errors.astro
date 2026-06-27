@@ -22,7 +22,7 @@ import APIDocsLayout from "../../components/APIDocsLayout.astro";
         <tbody>
           <tr><td data-label="Status"><code>200 OK</code></td><td data-label="Meaning">The request succeeded</td><td data-label="What to do">Parse the response body</td></tr>
           <tr><td data-label="Status"><code>400 Bad Request</code></td><td data-label="Meaning">Invalid request parameters</td><td data-label="What to do">Check your query parameters for typos</td></tr>
-          <tr><td data-label="Status"><code>404 Not Found</code></td><td data-label="Meaning">The dataset or endpoint doesn't exist</td><td data-label="What to do">Verify the slug and config name in the URL</td></tr>
+          <tr><td data-label="Status"><code>404 Not Found</code></td><td data-label="Meaning">The dataset or endpoint doesn't exist</td><td data-label="What to do">Verify the category and config name in the URL</td></tr>
           <tr><td data-label="Status"><code>422 Unprocessable Entity</code></td><td data-label="Meaning">Request validation failed</td><td data-label="What to do">Fix the parameter values and retry</td></tr>
           <tr><td data-label="Status"><code>500 Internal Server Error</code></td><td data-label="Meaning">Something went wrong on our end</td><td data-label="What to do">Wait a moment and retry; <a href="https://github.com/plus254/plus254/issues">report</a> if it persists</td></tr>
           <tr><td data-label="Status"><code>502 Bad Gateway</code></td><td data-label="Meaning">Data source temporarily unavailable</td><td data-label="What to do">Wait and retry with exponential backoff</td></tr>

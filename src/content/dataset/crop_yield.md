@@ -2,9 +2,9 @@
 title: "Crop Yield"
 description: "Crop yield per unit area across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/crop_yield"
+endpoint: "GET /v1/datasets/crop_yield"
 rows: 4263
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

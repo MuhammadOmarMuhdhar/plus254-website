@@ -2,9 +2,9 @@
 title: "Production Value (Crops)"
 description: "Value of crop production across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/production_value_crops"
+endpoint: "GET /v1/datasets/production_value_crops"
 rows: 647
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

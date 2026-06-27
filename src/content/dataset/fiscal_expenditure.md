@@ -2,9 +2,9 @@
 title: "Government Expenditure"
 description: "Monthly government expenditure breakdown"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/fiscal_expenditure"
+endpoint: "GET /v1/datasets/fiscal_expenditure"
 rows: 2656
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/2118703754_Revenue%20and%20Expenditure.csv"
 ---
 

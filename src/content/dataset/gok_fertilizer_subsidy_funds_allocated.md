@@ -2,9 +2,9 @@
 title: "GOK Fertilizer Subsidy Funds Allocated"
 description: "Funds allocated for the government fertilizer subsidy program across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/gok_fertilizer_subsidy_funds_allocated"
+endpoint: "GET /v1/datasets/gok_fertilizer_subsidy_funds_allocated"
 rows: 12
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

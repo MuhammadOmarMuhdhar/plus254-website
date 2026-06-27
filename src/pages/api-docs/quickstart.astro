@@ -73,7 +73,7 @@ print(response.json())</code></pre>
     &#123;
       "config": "forex_period_average",
       "name": "Monthly Exchange Rates (Period Average)",
-      "slug": "economy",
+      "category": "economy",
       "description": "Monthly exchange rates of major currencies against KES (period average)",
       "source": "Central Bank of Kenya",
       "url": "https://www.centralbank.go.ke/..."
@@ -81,7 +81,7 @@ print(response.json())</code></pre>
     &#123;
       "config": "tea",
       "name": "Tea Production and Exports",
-      "slug": "agriculture",
+      "category": "agriculture",
       "description": "Weekly tea auction data",
       "source": "Tea Board of Kenya",
       "url": "https://eatta.co.ke/statistics"
@@ -111,6 +111,13 @@ print(response.json())</code></pre>
         </thead>
         <tbody>
           <tr>
+            <td data-label="Parameter"><code>category</code></td>
+            <td data-label="Type">string</td>
+            <td data-label="Default">—</td>
+            <td data-label="Max">—</td>
+            <td data-label="Description">Filter by topic (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)</td>
+          </tr>
+          <tr>
             <td data-label="Parameter"><code>limit</code></td>
             <td data-label="Type">integer</td>
             <td data-label="Default">100</td>
@@ -129,6 +136,10 @@ print(response.json())</code></pre>
 
       <div class="common-patterns">
         <div class="common-patterns-header">Common Patterns</div>
+        <div class="pattern-row">
+          <span class="pattern-label">Filter by category</span>
+          <code class="pattern-code">GET /datasets?category=economy</code>
+        </div>
         <div class="pattern-row">
           <span class="pattern-label">First page</span>
           <code class="pattern-code">GET /datasets?limit=100&amp;offset=0</code>

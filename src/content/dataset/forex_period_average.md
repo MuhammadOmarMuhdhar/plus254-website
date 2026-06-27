@@ -2,9 +2,9 @@
 title: "Monthly Exchange Rates (Period Average)"
 description: "Monthly exchange rates of major currencies against KES (period average)"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/forex_period_average"
+endpoint: "GET /v1/datasets/forex_period_average"
 rows: 7980
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/exchange_rates/2034093818_Monthly%20Exchange%20rate%20(period%20average).csv"
 ---
 

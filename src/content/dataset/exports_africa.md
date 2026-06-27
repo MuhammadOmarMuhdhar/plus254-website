@@ -2,9 +2,9 @@
 title: "Value of Exports to Africa"
 description: "Monthly value of exports to selected African countries"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/exports_africa"
+endpoint: "GET /v1/datasets/exports_africa"
 rows: 4067
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1216083243_Value%20of%20Exports%20to%20Selected%20Africa%20Countries.csv"
 ---
 

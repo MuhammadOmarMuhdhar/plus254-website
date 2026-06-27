@@ -2,9 +2,9 @@
 title: "Crop Area"
 description: "Area under crop cultivation across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/crop_area"
+endpoint: "GET /v1/datasets/crop_area"
 rows: 5186
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

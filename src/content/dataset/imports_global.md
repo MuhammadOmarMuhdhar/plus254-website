@@ -2,9 +2,9 @@
 title: "Value of Imports from Rest of World"
 description: "Monthly value of direct imports from selected countries outside Africa"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/imports_global"
+endpoint: "GET /v1/datasets/imports_global"
 rows: 4371
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1436491729_Value%20of%20Direct%20Imports%20from%20Selected%20Rest%20of%20the%20World%20Countries.csv"
 ---
 

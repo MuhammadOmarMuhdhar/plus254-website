@@ -2,9 +2,9 @@
 title: "Export Quantity"
 description: "Quantity of agricultural exports across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/export_quantity"
+endpoint: "GET /v1/datasets/export_quantity"
 rows: 111
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

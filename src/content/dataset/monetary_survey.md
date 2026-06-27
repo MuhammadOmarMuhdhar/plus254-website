@@ -2,9 +2,9 @@
 title: "Depository Corporation Survey"
 description: "Monetary aggregates from the Depository Corporation Survey"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/monetary_survey"
+endpoint: "GET /v1/datasets/monetary_survey"
 rows: 12325
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/monetary_and_finance_statistics/274043565_Depository%20Corporation%20Survey%20-%20CSV.csv"
 ---
 

@@ -2,9 +2,9 @@
 title: "Total Value of Imports"
 description: "Total value of agricultural imports across Kenyan counties"
 source: "Kenya Agricultural Observatory Platform (Kilimo)"
-endpoint: "GET /agriculture/total_value_of_import"
+endpoint: "GET /v1/datasets/total_value_of_import"
 rows: 8
-topic: "agriculture"
+category: "agriculture"
 sourceUrl: "https://statistics.kilimo.go.ke"
 lastUpdated: "2026-06-15T12:42:19"
 ---

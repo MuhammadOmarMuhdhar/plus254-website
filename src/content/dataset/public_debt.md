@@ -2,9 +2,9 @@
 title: "Public Debt"
 description: "Monthly public debt (domestic and external)"
 source: "Central Bank of Kenya"
-endpoint: "GET /economy/public_debt"
+endpoint: "GET /v1/datasets/public_debt"
 rows: 930
-topic: "economy"
+category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/565446111_Public%20Debt.csv"
 ---
 
