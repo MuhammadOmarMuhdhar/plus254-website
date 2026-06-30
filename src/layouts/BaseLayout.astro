@@ -3,6 +3,7 @@ import "../styles/tokens.css";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
 
 export interface Props {
   title?: string;
@@ -44,10 +45,24 @@ const siteTitle = title.startsWith("+254") || title.includes("—") ? title : `$
   <body>
     <a href="#main-content" class="skip-link visually-hidden-focusable">Skip to main content</a>
     <Header />
-    <main id="main-content" class="page">
+    <main id="main-content" class="page" data-pagefind-body>
       <slot />
     </main>
     <Footer />
+
+    <PagefindConfig instance="site-search" />
+    <pagefind-modal instance="site-search">
+      <pagefind-modal-header>
+        <pagefind-input></pagefind-input>
+      </pagefind-modal-header>
+      <pagefind-modal-body>
+        <pagefind-summary></pagefind-summary>
+        <pagefind-results hide-sub-results></pagefind-results>
+      </pagefind-modal-body>
+      <pagefind-modal-footer>
+        <pagefind-keyboard-hints></pagefind-keyboard-hints>
+      </pagefind-modal-footer>
+    </pagefind-modal>
   </body>
 </html>
 
@@ -90,5 +105,51 @@ const siteTitle = title.startsWith("+254") || title.includes("—") ? title : `$
     margin: 0 auto;
     padding: var(--space-lg) var(--space-md);
     min-height: calc(100vh - 200px);
+  }
+</style>
+
+<style is:global>
+  /* Pagefind Component UI theming to match +254 brand */
+  :root {
+    --pf-text: #2c241c;
+    --pf-text-secondary: #6b5d4f;
+    --pf-text-muted: #8a7d6f;
+    --pf-background: #ffffff;
+    --pf-border: rgba(108, 185, 153, 0.5);
+    --pf-border-focus: #1f6f54;
+    --pf-hover: #e8f3ee;
+    --pf-mark: #1f6f54;
+    --pf-outline-focus: #1f6f54;
+    --pf-font: "DM Sans", system-ui, sans-serif;
+    --pf-modal-backdrop: rgba(44, 36, 28, 0.4);
+    --pf-border-radius: 0;
+  }
+
+  /* Force sharp edges on Pagefind modal (overrides hardcoded 12px radius) */
+  dialog.pf-modal {
+    border-radius: 0 !important;
+  }
+
+  /* Sharp edges on result cards and other rounded Pagefind elements */
+  .pf-result-card,
+  .pf-heading-chip,
+  .pf-searchbox-result,
+  .pf-dropdown-menu,
+  .pf-filter-pane {
+    border-radius: 0 !important;
+  }
+
+  .pf-result-link {
+    color: #1f6f54;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pf-result-link:hover {
+    text-decoration: none;
+  }
+
+  .pf-result-title {
+    font-weight: 600;
   }
 </style>

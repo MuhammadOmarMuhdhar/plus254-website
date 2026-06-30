@@ -28,6 +28,8 @@ const currentPath = Astro.url.pathname;
       ))}
     </div>
 
+    <pagefind-modal-trigger compact hide-shortcut instance="site-search" class="header__search" title="Search"></pagefind-modal-trigger>
+
     <button class="header__drawer" aria-label="Open menu" aria-expanded="false" aria-controls="header-drawer-nav" data-drawer-toggle>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
         <line x1="3" y1="6" x2="21" y2="6" />
@@ -153,6 +155,26 @@ const currentPath = Astro.url.pathname;
     color: var(--color-warm-dark);
   }
 
+  .header__search {
+    color: var(--color-warm-mid);
+    padding: 0 var(--space-xs);
+    padding-bottom: var(--space-sm);
+    min-height: 44px;
+    display: flex;
+    align-items: flex-end;
+    transition: color 0.2s var(--ease-out);
+    text-decoration: none;
+  }
+
+  .header__search:hover {
+    color: #1f6f54;
+  }
+
+  .header__search:focus-visible {
+    outline: 2px solid #1f6f54;
+    outline-offset: 2px;
+  }
+
   .header__drawer {
     display: none;
     color: var(--color-warm-mid);
@@ -222,4 +244,37 @@ const currentPath = Astro.url.pathname;
     .header__nav { display: none; }
     .header__drawer { display: flex; }
   }
+</style>
+
+<style is:global>
+  /* Pagefind modal trigger — styled as a plain icon button */
+  pagefind-modal-trigger.header__search {
+    display: inline-flex;
+    align-items: flex-end;
+    min-height: 44px;
+    --pf-background: transparent;
+    --pf-border: transparent;
+    --pf-border-focus: transparent;
+    --pf-text-muted: var(--color-warm-mid);
+  }
+
+  pagefind-modal-trigger.header__search:hover {
+    --pf-text-muted: #1f6f54;
+  }
+
+  pagefind-modal-trigger.header__search .pf-trigger-btn {
+    width: auto !important;
+    height: auto !important;
+    padding: var(--space-sm) var(--space-xs) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  pagefind-modal-trigger.header__search .pf-trigger-icon {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+
 </style>
