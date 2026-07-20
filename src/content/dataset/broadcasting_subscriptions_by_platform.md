@@ -34,7 +34,7 @@ lastUpdated: "2026-07-20T14:46:51"
 </tr>
 <tr>
 <td data-label="Column"><code>operator</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Broadcasting service provider (operator)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
@@ -42,7 +42,7 @@ lastUpdated: "2026-07-20T14:46:51"
 </tr>
 <tr>
 <td data-label="Column"><code>item</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Broadcasting platform (dth, cable)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>

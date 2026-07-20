@@ -34,7 +34,7 @@ lastUpdated: "2026-07-20T14:47:29"
 </tr>
 <tr>
 <td data-label="Column"><code>item</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Internet technology (cable, dsl etc)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>

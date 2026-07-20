@@ -26,7 +26,7 @@ lastUpdated: "2026-07-20T14:27:53"
 </tr>
 <tr>
 <td data-label="Column"><code>item</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">BPM6 balance of payments category (e.g., A. Current Account, n.i.e., General government)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>

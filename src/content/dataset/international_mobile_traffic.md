@@ -34,7 +34,7 @@ lastUpdated: "2026-07-20T14:47:17"
 </tr>
 <tr>
 <td data-label="Column"><code>region</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Region of international mobile traffic (eac / rest of world)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
@@ -42,7 +42,7 @@ lastUpdated: "2026-07-20T14:47:17"
 </tr>
 <tr>
 <td data-label="Column"><code>item</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Type of international mobile traffic (incoming / outgoing)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>

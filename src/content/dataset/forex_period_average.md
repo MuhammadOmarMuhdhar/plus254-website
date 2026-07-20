@@ -26,7 +26,7 @@ lastUpdated: "2026-07-20T14:30:18"
 </tr>
 <tr>
 <td data-label="Column"><code>month</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Calendar month name</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
@@ -34,7 +34,7 @@ lastUpdated: "2026-07-20T14:30:18"
 </tr>
 <tr>
 <td data-label="Column"><code>item</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Foreign currency name (e.g., united states dollar, sterling pound)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>

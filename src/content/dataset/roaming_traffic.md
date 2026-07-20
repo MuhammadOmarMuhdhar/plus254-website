@@ -1,12 +1,12 @@
 ---
-title: "Cybersecurity Incidents"
-description: "Quarterly cybersecurity incidents reported to the CAK"
+title: "Outbound Roaming Traffic"
+description: "Outbound roaming traffic, by country and type of traffic (voice, sms, data)"
 source: "Communications Authority of Kenya"
-endpoint: "GET /v1/datasets/cybersecurity_incidents"
-rows: 122
+endpoint: "GET /v1/datasets/roaming_traffic"
+rows: 350
 category: "network"
 sourceUrl: "https://ca.go.ke/statistics/"
-lastUpdated: "2026-07-20T14:47:04"
+lastUpdated: "2026-07-20T14:48:33"
 ---
 
 ## Columns
@@ -33,28 +33,36 @@ lastUpdated: "2026-07-20T14:47:04"
 <td data-label="Unique">4</td>
 </tr>
 <tr>
-<td data-label="Column"><code>metric</code></td>
+<td data-label="Column"><code>country</code></td>
 <td data-label="Type">str</td>
-<td data-label="Description">Threat or advisory</td>
+<td data-label="Description">Country of outbound roaming traffic</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">2</td>
+<td data-label="Unique">7</td>
+</tr>
+<tr>
+<td data-label="Column"><code>metric</code></td>
+<td data-label="Type">str</td>
+<td data-label="Description">Type of mobile traffic (voice, sms)</td>
+<td data-label="Nullable">No</td>
+<td data-label="Null count">0</td>
+<td data-label="Unique">3</td>
 </tr>
 <tr>
 <td data-label="Column"><code>item</code></td>
 <td data-label="Type">str</td>
-<td data-label="Description">Type of cybersecurity incident</td>
+<td data-label="Description">inbound/ outbound</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">8</td>
+<td data-label="Unique">3</td>
 </tr>
 <tr>
 <td data-label="Column"><code>value</code></td>
 <td data-label="Type">float64</td>
-<td data-label="Description">Number of cybersecurity incidents reported</td>
+<td data-label="Description">(minutes for voice, number of messages for sms, MB for data)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">122</td>
+<td data-label="Unique">334</td>
 </tr>
 </tbody>
 </table>
@@ -68,8 +76,8 @@ lastUpdated: "2026-07-20T14:47:04"
 <tbody>
 <tr>
 <td data-label="Column"><code>year</code></td>
-<td data-label="Count">122</td>
-<td data-label="Mean">2023.98</td>
+<td data-label="Count">350</td>
+<td data-label="Mean">2024.00</td>
 <td data-label="Std">0.78</td>
 <td data-label="Min">2023.00</td>
 <td data-label="25%">2023.00</td>
@@ -79,25 +87,25 @@ lastUpdated: "2026-07-20T14:47:04"
 </tr>
 <tr>
 <td data-label="Column"><code>quarter</code></td>
-<td data-label="Count">122</td>
-<td data-label="Mean">2.51</td>
-<td data-label="Std">1.02</td>
+<td data-label="Count">350</td>
+<td data-label="Mean">2.50</td>
+<td data-label="Std">1.03</td>
 <td data-label="Min">1.00</td>
 <td data-label="25%">2.00</td>
-<td data-label="50%">3.00</td>
+<td data-label="50%">2.50</td>
 <td data-label="75%">3.00</td>
 <td data-label="Max">4.00</td>
 </tr>
 <tr>
 <td data-label="Column"><code>value</code></td>
-<td data-label="Count">122</td>
-<td data-label="Mean">1.715e+08</td>
-<td data-label="Std">6.883e+08</td>
-<td data-label="Min">59.00</td>
-<td data-label="25%">235945.00</td>
-<td data-label="50%">3.213e+06</td>
-<td data-label="75%">1.463e+07</td>
-<td data-label="Max">4.492e+09</td>
+<td data-label="Count">350</td>
+<td data-label="Mean">1.074e+07</td>
+<td data-label="Std">2.53e+07</td>
+<td data-label="Min">0.00</td>
+<td data-label="25%">84009.25</td>
+<td data-label="50%">1.007e+06</td>
+<td data-label="75%">5.364e+06</td>
+<td data-label="Max">1.422e+08</td>
 </tr>
 </tbody>
 </table>
@@ -108,9 +116,9 @@ Overall coverage: **83.3%**
 
 | Period | Expected | Actual | Coverage |
 |--------|----------|--------|----------|
-| year=2023 | 8 | 6 | ! 75.0% |
-| year=2024 | 8 | 8 | OK 100.0% |
-| year=2025 | 8 | 6 | ! 75.0% |
+| year=2023 | 84 | 63 | ! 75.0% |
+| year=2024 | 84 | 84 | OK 100.0% |
+| year=2025 | 84 | 63 | ! 75.0% |
 
 ## Sample Data
 
@@ -118,36 +126,41 @@ Overall coverage: **83.3%**
   {
     &quot;year&quot;: 2023,
     &quot;quarter&quot;: 2,
-    &quot;metric&quot;: &quot;threats&quot;,
-    &quot;item&quot;: &quot;malware&quot;,
-    &quot;value&quot;: 13221698.0
+    &quot;country&quot;: &quot;uganda&quot;,
+    &quot;metric&quot;: &quot;voice&quot;,
+    &quot;item&quot;: &quot;incoming&quot;,
+    &quot;value&quot;: 130525722.0
   },
   {
     &quot;year&quot;: 2023,
     &quot;quarter&quot;: 2,
-    &quot;metric&quot;: &quot;threats&quot;,
-    &quot;item&quot;: &quot;brute force attacks&quot;,
-    &quot;value&quot;: 9670849.0
+    &quot;country&quot;: &quot;tanzania&quot;,
+    &quot;metric&quot;: &quot;voice&quot;,
+    &quot;item&quot;: &quot;incoming&quot;,
+    &quot;value&quot;: 12135523.0
   },
   {
     &quot;year&quot;: 2023,
     &quot;quarter&quot;: 2,
-    &quot;metric&quot;: &quot;threats&quot;,
-    &quot;item&quot;: &quot;web application attacks&quot;,
-    &quot;value&quot;: 72536.0
+    &quot;country&quot;: &quot;rwanda&quot;,
+    &quot;metric&quot;: &quot;voice&quot;,
+    &quot;item&quot;: &quot;incoming&quot;,
+    &quot;value&quot;: 3503338.0
   },
   {
     &quot;year&quot;: 2023,
     &quot;quarter&quot;: 2,
-    &quot;metric&quot;: &quot;threats&quot;,
-    &quot;item&quot;: &quot;system vulnerabilities&quot;,
-    &quot;value&quot;: 1269267620.0
+    &quot;country&quot;: &quot;burundi&quot;,
+    &quot;metric&quot;: &quot;voice&quot;,
+    &quot;item&quot;: &quot;incoming&quot;,
+    &quot;value&quot;: 5133.0
   },
   {
     &quot;year&quot;: 2023,
     &quot;quarter&quot;: 2,
-    &quot;metric&quot;: &quot;threats&quot;,
-    &quot;item&quot;: &quot;mobile application attacks&quot;,
-    &quot;value&quot;: 52705.0
+    &quot;country&quot;: &quot;south sudan&quot;,
+    &quot;metric&quot;: &quot;voice&quot;,
+    &quot;item&quot;: &quot;incoming&quot;,
+    &quot;value&quot;: 5086388.0
   }
 ]</code></pre>
