@@ -3,9 +3,10 @@ title: "Balance of Payments (Annual)"
 description: "Annual balance of payments statement"
 source: "Central Bank of Kenya"
 endpoint: "GET /v1/datasets/bop_annual"
-rows: 357
+rows: 350
 category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1657248905_Balance%20of%20Payments%20Statement%20(Annual%20Calender%20Year).csv"
+lastUpdated: "2026-07-20T14:27:53"
 ---
 
 ## Columns
@@ -24,8 +25,8 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/
 <td data-label="Unique">7</td>
 </tr>
 <tr>
-<td data-label="Column"><code>metric</code></td>
-<td data-label="Type">object</td>
+<td data-label="Column"><code>item</code></td>
+<td data-label="Type">str</td>
 <td data-label="Description">BPM6 balance of payments category (e.g., A. Current Account, n.i.e., General government)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
@@ -51,7 +52,7 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/
 <tbody>
 <tr>
 <td data-label="Column"><code>year</code></td>
-<td data-label="Count">357</td>
+<td data-label="Count">350</td>
 <td data-label="Mean">2022.00</td>
 <td data-label="Std">2.00</td>
 <td data-label="Min">2019.00</td>
@@ -62,44 +63,58 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/
 </tr>
 <tr>
 <td data-label="Column"><code>value</code></td>
-<td data-label="Count">357</td>
-<td data-label="Mean">111566.80</td>
-<td data-label="Std">512985.75</td>
+<td data-label="Count">350</td>
+<td data-label="Mean">113798.14</td>
+<td data-label="Std">517858.95</td>
 <td data-label="Min">-1.401e+06</td>
-<td data-label="25%">-306.70</td>
-<td data-label="50%">9230.00</td>
-<td data-label="75%">133316.00</td>
+<td data-label="25%">-387.07</td>
+<td data-label="50%">11112.50</td>
+<td data-label="75%">134666.75</td>
 <td data-label="Max">3.063e+06</td>
 </tr>
 </tbody>
 </table>
+
+## Dimensional Coverage
+
+Overall coverage: **100.0%**
+
+| Period | Expected | Actual | Coverage |
+|--------|----------|--------|----------|
+| year=2019 | 41 | 41 | OK 100.0% |
+| year=2020 | 41 | 41 | OK 100.0% |
+| year=2021 | 41 | 41 | OK 100.0% |
+| year=2022 | 41 | 41 | OK 100.0% |
+| year=2023 | 41 | 41 | OK 100.0% |
+| year=2024 | 41 | 41 | OK 100.0% |
+| year=2025 | 41 | 41 | OK 100.0% |
 
 ## Sample Data
 
 <pre class="code-block"><code>[
   {
     &quot;year&quot;: 2019,
-    &quot;metric&quot;: &quot;a. current account, n.i.e.&quot;,
+    &quot;item&quot;: &quot;current account, n.i.e.&quot;,
     &quot;value&quot;: -507653.0
   },
   {
     &quot;year&quot;: 2019,
-    &quot;metric&quot;: &quot;other debt instruments&quot;,
-    &quot;value&quot;: 57834.0
-  },
-  {
-    &quot;year&quot;: 2019,
-    &quot;metric&quot;: &quot;central bank&quot;,
+    &quot;item&quot;: &quot;general government&quot;,
     &quot;value&quot;: 0.0
   },
   {
     &quot;year&quot;: 2019,
-    &quot;metric&quot;: &quot;deposit-taking corporations, except the central bank&quot;,
-    &quot;value&quot;: 55710.0
+    &quot;item&quot;: &quot;other sectors&quot;,
+    &quot;value&quot;: 2125.0
   },
   {
     &quot;year&quot;: 2019,
-    &quot;metric&quot;: &quot;general government&quot;,
-    &quot;value&quot;: 0.0
+    &quot;item&quot;: &quot;other financial corporations&quot;,
+    &quot;value&quot;: 213.620931
+  },
+  {
+    &quot;year&quot;: 2019,
+    &quot;item&quot;: &quot;nonfinancial corporations, households, and npishs&quot;,
+    &quot;value&quot;: 1911.0
   }
 ]</code></pre>

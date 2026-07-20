@@ -6,6 +6,7 @@ endpoint: "GET /v1/datasets/gdp_quarterly"
 rows: 2725
 category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/national_accounts_statistics/1084903161_Quarterly%20GDP.csv"
+lastUpdated: "2026-07-20T14:30:39"
 ---
 
 ## Columns
@@ -25,15 +26,15 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/national_accounts_statistics/1
 </tr>
 <tr>
 <td data-label="Column"><code>quarter</code></td>
-<td data-label="Type">object</td>
-<td data-label="Description">Calendar quarter (Q1, Q2, Q3, Q4)</td>
+<td data-label="Type">int64</td>
+<td data-label="Description">Calendar quarter</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
 <td data-label="Unique">4</td>
 </tr>
 <tr>
-<td data-label="Column"><code>metric</code></td>
-<td data-label="Type">object</td>
+<td data-label="Column"><code>item</code></td>
+<td data-label="Type">str</td>
 <td data-label="Description">Economic sector or activity (e.g., Agriculture, Manufacturing, Construction, Total GDP)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
@@ -69,6 +70,17 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/national_accounts_statistics/1
 <td data-label="Max">2025.00</td>
 </tr>
 <tr>
+<td data-label="Column"><code>quarter</code></td>
+<td data-label="Count">2725</td>
+<td data-label="Mean">2.49</td>
+<td data-label="Std">1.12</td>
+<td data-label="Min">1.00</td>
+<td data-label="25%">1.00</td>
+<td data-label="50%">2.00</td>
+<td data-label="75%">3.00</td>
+<td data-label="Max">4.00</td>
+</tr>
+<tr>
 <td data-label="Column"><code>value</code></td>
 <td data-label="Count">2725</td>
 <td data-label="Mean">197844.95</td>
@@ -82,37 +94,61 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/national_accounts_statistics/1
 </tbody>
 </table>
 
+## Dimensional Coverage
+
+Overall coverage: **96.6%**
+
+| Period | Expected | Actual | Coverage |
+|--------|----------|--------|----------|
+| year=2009 | 88 | 85 | OK 96.6% |
+| year=2010 | 88 | 85 | OK 96.6% |
+| year=2011 | 88 | 85 | OK 96.6% |
+| year=2012 | 88 | 85 | OK 96.6% |
+| year=2013 | 88 | 85 | OK 96.6% |
+| year=2014 | 88 | 85 | OK 96.6% |
+| year=2015 | 88 | 85 | OK 96.6% |
+| year=2016 | 88 | 85 | OK 96.6% |
+| year=2017 | 88 | 85 | OK 96.6% |
+| year=2018 | 88 | 85 | OK 96.6% |
+| year=2019 | 88 | 85 | OK 96.6% |
+| year=2020 | 88 | 85 | OK 96.6% |
+| year=2021 | 88 | 85 | OK 96.6% |
+| year=2022 | 88 | 85 | OK 96.6% |
+| year=2023 | 88 | 85 | OK 96.6% |
+| year=2024 | 88 | 85 | OK 96.6% |
+| year=2025 | 88 | 85 | OK 96.6% |
+
 ## Sample Data
 
 <pre class="code-block"><code>[
   {
     &quot;year&quot;: 2009,
-    &quot;quarter&quot;: &quot;q1&quot;,
-    &quot;metric&quot;: &quot;accommodation &amp; restaurant&quot;,
-    &quot;value&quot;: 20371.0
-  },
-  {
-    &quot;year&quot;: 2009,
-    &quot;quarter&quot;: &quot;q1&quot;,
-    &quot;metric&quot;: &quot;agriculture&quot;,
+    &quot;quarter&quot;: 1,
+    &quot;item&quot;: &quot;agriculture&quot;,
     &quot;value&quot;: 312740.0
   },
   {
     &quot;year&quot;: 2009,
-    &quot;quarter&quot;: &quot;q1&quot;,
-    &quot;metric&quot;: &quot;all industries at basic prices&quot;,
-    &quot;value&quot;: 1231237.0
+    &quot;quarter&quot;: 1,
+    &quot;item&quot;: &quot;mining &amp; quarrying&quot;,
+    &quot;value&quot;: 9316.0
   },
   {
     &quot;year&quot;: 2009,
-    &quot;quarter&quot;: &quot;q1&quot;,
-    &quot;metric&quot;: &quot;construction&quot;,
+    &quot;quarter&quot;: 1,
+    &quot;item&quot;: &quot;manufacturing&quot;,
+    &quot;value&quot;: 126473.0
+  },
+  {
+    &quot;year&quot;: 2009,
+    &quot;quarter&quot;: 1,
+    &quot;item&quot;: &quot;electricity &amp; water supply&quot;,
+    &quot;value&quot;: 35149.0
+  },
+  {
+    &quot;year&quot;: 2009,
+    &quot;quarter&quot;: 1,
+    &quot;item&quot;: &quot;construction&quot;,
     &quot;value&quot;: 50218.0
-  },
-  {
-    &quot;year&quot;: 2009,
-    &quot;quarter&quot;: &quot;q1&quot;,
-    &quot;metric&quot;: &quot;education&quot;,
-    &quot;value&quot;: 61140.0
   }
 ]</code></pre>

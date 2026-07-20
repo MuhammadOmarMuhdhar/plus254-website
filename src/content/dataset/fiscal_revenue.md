@@ -3,9 +3,10 @@ title: "Government Revenue"
 description: "Monthly government revenue breakdown"
 source: "Central Bank of Kenya"
 endpoint: "GET /v1/datasets/fiscal_revenue"
-rows: 2326
+rows: 1700
 category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/2118703754_Revenue%20and%20Expenditure.csv"
+lastUpdated: "2026-07-20T14:29:18"
 ---
 
 ## Columns
@@ -16,7 +17,7 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/
 </thead>
 <tbody>
 <tr>
-<td data-label="Column"><code>fiscal_year</code></td>
+<td data-label="Column"><code>year</code></td>
 <td data-label="Type">int64</td>
 <td data-label="Description">Fiscal year (e.g., 1999 means FY 1999/2000)</td>
 <td data-label="Nullable">No</td>
@@ -25,19 +26,19 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/
 </tr>
 <tr>
 <td data-label="Column"><code>month</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Calendar month name</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
 <td data-label="Unique">12</td>
 </tr>
 <tr>
-<td data-label="Column"><code>metric</code></td>
-<td data-label="Type">object</td>
+<td data-label="Column"><code>item</code></td>
+<td data-label="Type">str</td>
 <td data-label="Description">Revenue category (e.g., import duty, excise duty, income tax, vat, total revenue)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">8</td>
+<td data-label="Unique">5</td>
 </tr>
 <tr>
 <td data-label="Column"><code>value</code></td>
@@ -45,7 +46,7 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/
 <td data-label="Description">Revenue in KES millions (comma-formatted number)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">2323</td>
+<td data-label="Unique">1698</td>
 </tr>
 </tbody>
 </table>
@@ -58,9 +59,9 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/
 </thead>
 <tbody>
 <tr>
-<td data-label="Column"><code>fiscal_year</code></td>
-<td data-label="Count">2326</td>
-<td data-label="Mean">2013.13</td>
+<td data-label="Column"><code>year</code></td>
+<td data-label="Count">1700</td>
+<td data-label="Mean">2013.29</td>
 <td data-label="Std">7.57</td>
 <td data-label="Min">1999.00</td>
 <td data-label="25%">2007.00</td>
@@ -70,49 +71,84 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/government_finance_statistics/
 </tr>
 <tr>
 <td data-label="Column"><code>value</code></td>
-<td data-label="Count">2326</td>
-<td data-label="Mean">215787.29</td>
-<td data-label="Std">355462.34</td>
+<td data-label="Count">1700</td>
+<td data-label="Mean">126548.06</td>
+<td data-label="Std">169949.82</td>
 <td data-label="Min">987.00</td>
-<td data-label="25%">28213.71</td>
-<td data-label="50%">73828.77</td>
-<td data-label="75%">231773.14</td>
-<td data-label="Max">2.957e+06</td>
+<td data-label="25%">24112.12</td>
+<td data-label="50%">56947.41</td>
+<td data-label="75%">154516.69</td>
+<td data-label="Max">1.147e+06</td>
 </tr>
 </tbody>
 </table>
+
+## Dimensional Coverage
+
+Overall coverage: **93.2%**
+
+| Period | Expected | Actual | Coverage |
+|--------|----------|--------|----------|
+| year=1999 | 60 | 10 | ! 16.7% |
+| year=2000 | 60 | 40 | ! 66.7% |
+| year=2001 | 60 | 60 | OK 100.0% |
+| year=2002 | 60 | 60 | OK 100.0% |
+| year=2003 | 60 | 60 | OK 100.0% |
+| year=2004 | 60 | 60 | OK 100.0% |
+| year=2005 | 60 | 60 | OK 100.0% |
+| year=2006 | 60 | 60 | OK 100.0% |
+| year=2007 | 60 | 60 | OK 100.0% |
+| year=2008 | 60 | 60 | OK 100.0% |
+| year=2009 | 60 | 60 | OK 100.0% |
+| year=2010 | 60 | 60 | OK 100.0% |
+| year=2011 | 60 | 60 | OK 100.0% |
+| year=2012 | 60 | 60 | OK 100.0% |
+| year=2013 | 60 | 60 | OK 100.0% |
+| year=2014 | 60 | 60 | OK 100.0% |
+| year=2015 | 60 | 60 | OK 100.0% |
+| year=2016 | 60 | 60 | OK 100.0% |
+| year=2017 | 60 | 60 | OK 100.0% |
+| year=2018 | 60 | 60 | OK 100.0% |
+| year=2019 | 60 | 60 | OK 100.0% |
+| year=2020 | 60 | 60 | OK 100.0% |
+| year=2021 | 60 | 60 | OK 100.0% |
+| year=2022 | 60 | 60 | OK 100.0% |
+| year=2023 | 60 | 60 | OK 100.0% |
+| year=2024 | 60 | 60 | OK 100.0% |
+| year=2025 | 60 | 60 | OK 100.0% |
+| year=2026 | 60 | 15 | ! 25.0% |
 
 ## Sample Data
 
 <pre class="code-block"><code>[
   {
-    &quot;fiscal_year&quot;: 1999,
+    &quot;year&quot;: 1999,
     &quot;month&quot;: &quot;september&quot;,
-    &quot;metric&quot;: &quot;import duty&quot;,
+    &quot;item&quot;: &quot;import duty&quot;,
     &quot;value&quot;: 7157.0
   },
   {
-    &quot;fiscal_year&quot;: 1999,
-    &quot;month&quot;: &quot;december&quot;,
-    &quot;metric&quot;: &quot;import duty&quot;,
-    &quot;value&quot;: 13912.0
+    &quot;year&quot;: 1999,
+    &quot;month&quot;: &quot;september&quot;,
+    &quot;item&quot;: &quot;excise duty&quot;,
+    &quot;value&quot;: 6869.0
   },
   {
-    &quot;fiscal_year&quot;: 2000,
-    &quot;month&quot;: &quot;march&quot;,
-    &quot;metric&quot;: &quot;import duty&quot;,
-    &quot;value&quot;: 21407.0
+    &quot;year&quot;: 1999,
+    &quot;month&quot;: &quot;september&quot;,
+    &quot;item&quot;: &quot;income tax&quot;,
+    &quot;value&quot;: 12054.0
   },
   {
-    &quot;fiscal_year&quot;: 2000,
-    &quot;month&quot;: &quot;june&quot;,
-    &quot;metric&quot;: &quot;import duty&quot;,
-    &quot;value&quot;: 28605.0
+    &quot;year&quot;: 1999,
+    &quot;month&quot;: &quot;september&quot;,
+    &quot;item&quot;: &quot;vat&quot;,
+    &quot;value&quot;: 9255.0
   },
   {
-    &quot;fiscal_year&quot;: 2000,
-    &quot;month&quot;: &quot;july&quot;,
-    &quot;metric&quot;: &quot;import duty&quot;,
-    &quot;value&quot;: 2813.0
+    &quot;year&quot;: 1999,
+    &quot;month&quot;: &quot;september&quot;,
+    &quot;item&quot;: &quot;other tax&quot;,
+    &quot;value&quot;: 12919.0
   }
 ]</code></pre>

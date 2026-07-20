@@ -3,9 +3,10 @@ title: "Value of Imports from Rest of World"
 description: "Monthly value of direct imports from selected countries outside Africa"
 source: "Central Bank of Kenya"
 endpoint: "GET /v1/datasets/imports_global"
-rows: 4371
+rows: 3636
 category: "economy"
 sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/1436491729_Value%20of%20Direct%20Imports%20from%20Selected%20Rest%20of%20the%20World%20Countries.csv"
+lastUpdated: "2026-07-20T14:31:42"
 ---
 
 ## Columns
@@ -21,31 +22,31 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/
 <td data-label="Description">Calendar year</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">29</td>
+<td data-label="Unique">26</td>
 </tr>
 <tr>
 <td data-label="Column"><code>month</code></td>
-<td data-label="Type">object</td>
+<td data-label="Type">str</td>
 <td data-label="Description">Calendar month name</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
 <td data-label="Unique">12</td>
 </tr>
 <tr>
-<td data-label="Column"><code>metric</code></td>
-<td data-label="Type">object</td>
+<td data-label="Column"><code>item</code></td>
+<td data-label="Type">str</td>
 <td data-label="Description">Origin country (e.g., u.k, u.s.a, china, india, total)</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">13</td>
+<td data-label="Unique">12</td>
 </tr>
 <tr>
 <td data-label="Column"><code>value</code></td>
 <td data-label="Type">float64</td>
-<td data-label="Description">Import value in KES millions (comma-formatted number)</td>
+<td data-label="Description">Import value in KES millions</td>
 <td data-label="Nullable">No</td>
 <td data-label="Null count">0</td>
-<td data-label="Unique">4340</td>
+<td data-label="Unique">3620</td>
 </tr>
 </tbody>
 </table>
@@ -59,60 +60,93 @@ sourceUrl: "https://www.centralbank.go.ke/uploads/balance_of_payment_statistics/
 <tbody>
 <tr>
 <td data-label="Column"><code>year</code></td>
-<td data-label="Count">4371</td>
-<td data-label="Mean">2011.73</td>
-<td data-label="Std">8.11</td>
-<td data-label="Min">1998.00</td>
-<td data-label="25%">2005.00</td>
-<td data-label="50%">2012.00</td>
+<td data-label="Count">3636</td>
+<td data-label="Mean">2013.13</td>
+<td data-label="Std">7.29</td>
+<td data-label="Min">2001.00</td>
+<td data-label="25%">2007.00</td>
+<td data-label="50%">2013.00</td>
 <td data-label="75%">2019.00</td>
 <td data-label="Max">2026.00</td>
 </tr>
 <tr>
 <td data-label="Column"><code>value</code></td>
-<td data-label="Count">4371</td>
-<td data-label="Mean">17128.71</td>
-<td data-label="Std">38763.90</td>
-<td data-label="Min">88.27</td>
-<td data-label="25%">1739.97</td>
-<td data-label="50%">3845.89</td>
-<td data-label="75%">12251.81</td>
-<td data-label="Max">332367.64</td>
+<td data-label="Count">3636</td>
+<td data-label="Mean">10119.49</td>
+<td data-label="Std">17430.92</td>
+<td data-label="Min">168.38</td>
+<td data-label="25%">1914.21</td>
+<td data-label="50%">3810.61</td>
+<td data-label="75%">9643.02</td>
+<td data-label="Max">166947.10</td>
 </tr>
 </tbody>
 </table>
+
+## Dimensional Coverage
+
+Overall coverage: **97.1%**
+
+| Period | Expected | Actual | Coverage |
+|--------|----------|--------|----------|
+| year=2001 | 144 | 144 | OK 100.0% |
+| year=2002 | 144 | 144 | OK 100.0% |
+| year=2003 | 144 | 144 | OK 100.0% |
+| year=2004 | 144 | 144 | OK 100.0% |
+| year=2005 | 144 | 144 | OK 100.0% |
+| year=2006 | 144 | 144 | OK 100.0% |
+| year=2007 | 144 | 144 | OK 100.0% |
+| year=2008 | 144 | 144 | OK 100.0% |
+| year=2009 | 144 | 144 | OK 100.0% |
+| year=2010 | 144 | 144 | OK 100.0% |
+| year=2011 | 144 | 144 | OK 100.0% |
+| year=2012 | 144 | 144 | OK 100.0% |
+| year=2013 | 144 | 144 | OK 100.0% |
+| year=2014 | 144 | 144 | OK 100.0% |
+| year=2015 | 144 | 144 | OK 100.0% |
+| year=2016 | 144 | 144 | OK 100.0% |
+| year=2017 | 144 | 144 | OK 100.0% |
+| year=2018 | 144 | 144 | OK 100.0% |
+| year=2019 | 144 | 144 | OK 100.0% |
+| year=2020 | 144 | 144 | OK 100.0% |
+| year=2021 | 144 | 144 | OK 100.0% |
+| year=2022 | 144 | 144 | OK 100.0% |
+| year=2023 | 144 | 144 | OK 100.0% |
+| year=2024 | 144 | 144 | OK 100.0% |
+| year=2025 | 144 | 144 | OK 100.0% |
+| year=2026 | 144 | 36 | ! 25.0% |
 
 ## Sample Data
 
 <pre class="code-block"><code>[
   {
-    &quot;year&quot;: 1998,
+    &quot;year&quot;: 2001,
     &quot;month&quot;: &quot;january&quot;,
-    &quot;metric&quot;: &quot;u.k&quot;,
-    &quot;value&quot;: 1870.74
+    &quot;item&quot;: &quot;u.k&quot;,
+    &quot;value&quot;: 1868.15
   },
   {
-    &quot;year&quot;: 1998,
-    &quot;month&quot;: &quot;february&quot;,
-    &quot;metric&quot;: &quot;u.k&quot;,
-    &quot;value&quot;: 1725.03
+    &quot;year&quot;: 2001,
+    &quot;month&quot;: &quot;january&quot;,
+    &quot;item&quot;: &quot;u.s.a&quot;,
+    &quot;value&quot;: 1001.11
   },
   {
-    &quot;year&quot;: 1998,
-    &quot;month&quot;: &quot;march&quot;,
-    &quot;metric&quot;: &quot;u.k&quot;,
-    &quot;value&quot;: 1986.62
+    &quot;year&quot;: 2001,
+    &quot;month&quot;: &quot;january&quot;,
+    &quot;item&quot;: &quot;germany&quot;,
+    &quot;value&quot;: 1252.24
   },
   {
-    &quot;year&quot;: 1998,
-    &quot;month&quot;: &quot;april&quot;,
-    &quot;metric&quot;: &quot;u.k&quot;,
-    &quot;value&quot;: 1581.62
+    &quot;year&quot;: 2001,
+    &quot;month&quot;: &quot;january&quot;,
+    &quot;item&quot;: &quot;italy&quot;,
+    &quot;value&quot;: 578.28
   },
   {
-    &quot;year&quot;: 1998,
-    &quot;month&quot;: &quot;may&quot;,
-    &quot;metric&quot;: &quot;u.k&quot;,
-    &quot;value&quot;: 1835.51
+    &quot;year&quot;: 2001,
+    &quot;month&quot;: &quot;january&quot;,
+    &quot;item&quot;: &quot;u.a.e&quot;,
+    &quot;value&quot;: 2749.31
   }
 ]</code></pre>
