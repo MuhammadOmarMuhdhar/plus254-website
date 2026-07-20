@@ -14,9 +14,10 @@ const grouped = datasets.reduce(
 const topicNames: Record<string, string> = {
   economy: "Economy",
   agriculture: "Agriculture",
+  network: "Network",
   governance: "Governance",
 };
-const topicOrder = ["economy", "agriculture", "governance"];
+const topicOrder = ["economy", "agriculture", "network", "governance"];
 const sources = [...new Set(datasets.map((d) => d.data.source))];
 const categoryPlaceholder = "{category}";
 ---
@@ -32,7 +33,7 @@ const categoryPlaceholder = "{category}";
       <div class="narrative">
         <p>
           This is the full catalog of every dataset available through the +254 API.
-          Datasets are organized by category: Economy, Agriculture, and Governance.
+          Datasets are organized by category: Economy, Agriculture, Network, and Governance.
         </p>
         <p>
           Every dataset follows the same tidy long-form structure: identifier columns

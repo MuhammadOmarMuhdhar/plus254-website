@@ -19,10 +19,11 @@ const grouped = datasets.reduce(
 const topicNames: Record<string, string> = {
   economy: "Economy",
   agriculture: "Agriculture",
+  network: "Network",
   governance: "Governance",
 };
 
-const topicOrder = ["economy", "agriculture", "governance"];
+const topicOrder = ["economy", "agriculture", "network", "governance"];
 
 const isLanding = !activeSlug;
 const activeTopic = activeSlug
@@ -422,11 +423,12 @@ const activeLabel = activeSlug
 <script>
   const isLanding = document.querySelector('.nav-link.active') !== null;
   if (isLanding) {
-    const sectionIds = ['overview', 'economy', 'agriculture', 'governance'];
+    const sectionIds = ['overview', 'economy', 'agriculture', 'network', 'governance'];
     const navMap = {
       'overview': 'overview',
       'economy': 'economy',
       'agriculture': 'agriculture',
+      'network': 'network',
       'governance': 'governance',
     };
     const overviewLink = document.querySelector('.nav-link');
@@ -439,7 +441,7 @@ const activeLabel = activeSlug
         el.classList.toggle('active', el.dataset.topic === id);
       });
       if (label && navMap[id]) {
-        const displayNames = { overview: 'Overview', economy: 'Economy', agriculture: 'Agriculture', governance: 'Governance' };
+        const displayNames = { overview: 'Overview', economy: 'Economy', agriculture: 'Agriculture', network: 'Network', governance: 'Governance' };
         label.textContent = displayNames[id] || 'Overview';
       }
     }

@@ -11,6 +11,7 @@ const dataset = defineCollection({
     rows: z.number(),
     category: z.string(),
     sourceUrl: z.string().url().optional(),
+    lastUpdated: z.string().optional(),
   }),
 });
 
