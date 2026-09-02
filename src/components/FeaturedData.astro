@@ -1,16 +1,31 @@
+---
+const content = {
+  label: "Featured Data",
+  title: "How the Iran war is affecting Kenya's tea industry",
+  description:
+    "Kenya's tea industry generates roughly 23% of Kenya's foreign-exchange earnings. Since the Iran–Israel conflict escalated, unsold tea at the Mombasa auction has doubled.",
+  link: { label: "Explore tea data", href: "/datasets/tea/" },
+  chart: {
+    embedScript: "https://datawrapper.dwcdn.net/tKoO3/embed.js",
+    fallbackImage: "https://datawrapper.dwcdn.net/tKoO3/full.png",
+    alt: "Mombasa Tea Auction Supply and Demand Index",
+  },
+};
+---
+
 <section class="featured-data">
   <div class="featured-inner">
     <div class="featured-text">
-      <h2 class="section-label">Featured Data</h2>
-      <h3 class="featured-title">How the Iran war is affecting Kenya's tea industry</h3>
-      <p class="featured-desc">Kenya's tea industry generates roughly 23% of Kenya's foreign-exchange earnings. Since the Iran–Israel conflict escalated, unsold tea at the Mombasa auction has doubled.</p>
-      <a href="/datasets/tea/" class="featured-link">Explore tea data <span aria-hidden="true">→</span></a>
+      <h2 class="section-label">{content.label}</h2>
+      <h3 class="featured-title">{content.title}</h3>
+      <p class="featured-desc">{content.description}</p>
+      <a href={content.link.href} class="featured-link">{content.link.label} <span aria-hidden="true">→</span></a>
     </div>
     <div class="featured-chart">
       <div class="chart-wrapper">
         <div class="chart-embed">
-          <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/tKoO3/embed.js" charset="utf-8"></script>
-          <noscript><img src="https://datawrapper.dwcdn.net/tKoO3/full.png" alt="Mombasa Tea Auction Supply and Demand Index" /></noscript>
+          <script type="text/javascript" defer src={content.chart.embedScript} charset="utf-8"></script>
+          <noscript><img src={content.chart.fallbackImage} alt={content.chart.alt} /></noscript>
         </div>
       </div>
     </div>

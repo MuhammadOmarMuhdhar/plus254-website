@@ -1,105 +1,158 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AboutLayout from "../components/AboutLayout.astro";
+
+const content = {
+  title: "About +254",
+  sections: {
+    mission: {
+      eyebrow: "Mission",
+      paragraphs: [
+        "Understanding the socioeconomic factors that shape everyday life starts with data. In Kenya, that data is scattered across PDFs and messy Excel files, inconsistently formatted, and buried in portals that are unintuitive and rarely updated. It can take hours just to locate, extract, and clean data before any analysis can begin.",
+        "+254 makes data from official Kenyan sources easier to find, retrieve, and use, in formats that are ready for real work. The goal is straightforward: public data should be accessible, not just available. We hope this makes it easier for researchers, journalists, developers, and policymakers to work with the numbers that shape Kenya.",
+      ],
+    },
+    sourcing: {
+      eyebrow: "How we source data",
+      paragraphs: [
+        "All our data comes exclusively from official Kenyan government institutions and their public publications. Each dataset links back to its original source, so you can always trace where it came from and cite it if needed.",
+        "Datasets are updated live: whenever a source publishes new data, it flows through our extraction pipeline automatically. Everything is cleaned and standardized from extraction, with no imputation of any kind. Check the <a href=\"/datasets/\">full catalog</a> for details on what's available and how each dataset is structured.",
+        "Our catalog is always growing. Know a source that should be added? Open a GitHub issue with the URL and a description of what it contains.",
+      ],
+    },
+    process: {
+      eyebrow: "How we process data",
+      steps: [
+        {
+          number: "01",
+          title: "Extraction",
+          description: "Raw data comes in a dozen different formats. We extract it all into a single consistent structure, so you never have to deal with the original mess.",
+        },
+        {
+          number: "02",
+          title: "Validation",
+          description: "Sources contain errors, gaps, and inconsistencies. We validate every column against a defined schema to catch problems before they reach you.",
+        },
+        {
+          number: "03",
+          title: "Cleaning",
+          description: "Date formats, units, column names: we standardize the presentation without touching the underlying values.",
+        },
+        {
+          number: "04",
+          title: "Publication",
+          description: "Every dataset is served through the same REST API, with the same JSON format, pagination, and query patterns. Learn one, and you know them all.",
+        },
+      ],
+    },
+    conventions: {
+      eyebrow: "Conventions",
+      items: [
+        {
+          term: "Long-form data",
+          description: "Every dataset uses a <code>metric</code> and <code>value</code> column pair instead of one column per indicator.",
+        },
+        {
+          term: "snake_case columns",
+          description: "All column names are snake_case: <code>fiscal_year</code>, <code>area_name</code>, <code>sale_week</code>.",
+        },
+        {
+          term: "Lowercased values",
+          description: "Every string value is lowercased: months (<code>january</code>), metric names (<code>total revenue</code>), country names (<code>united states dollar</code>), counties (<code>nairobi</code>).",
+        },
+        {
+          term: "Clean numeric values",
+          description: "Commas and other formatting are stripped. Every <code>value</code> column is numeric. Rows where a value was not reported are omitted.",
+        },
+        {
+          term: "Schema patterns",
+          description: "Monthly data has <code>year</code> and <code>month</code>, quarterly has <code>year</code> and <code>quarter</code>, annual has just <code>year</code>, and geographic datasets include <code>area_name</code>.",
+        },
+        {
+          term: "No imputation",
+          description: "Values are reported as published. Nothing is estimated, interpolated, or filled in.",
+        },
+      ],
+    },
+    support: {
+      eyebrow: "Support & contributions",
+      intro: "+254 is an open-source project. The code, pipelines, and dataset definitions are available on GitHub.",
+      items: [
+        {
+          label: "Report an issue.",
+          text: "If you find incorrect data, missing values, or unexpected API behavior, open a GitHub issue.",
+        },
+        {
+          label: "Suggest a dataset.",
+          text: "Know a source that should be added? Open an issue with the URL and a description of its contents.",
+        },
+        {
+          label: "Contribute code.",
+          text: "Pull requests are welcome. The codebase uses descriptive variable names and consistent pipeline patterns, making it straightforward to extend.",
+        },
+      ],
+    },
+  },
+};
 ---
 
 <BaseLayout title="About — plus254">
   <AboutLayout activeSection="mission">
     <header class="page-heading">
-      <h1>About +254</h1>
+      <h1>{content.title}</h1>
     </header>
 
     <section class="section section--mission" id="mission">
-      <span class="eyebrow">Mission</span>
+      <span class="eyebrow">{content.sections.mission.eyebrow}</span>
       <div class="narrative">
-        <p>Understanding the socioeconomic factors that shape everyday life starts with data. In Kenya, that data is scattered across PDFs and messy Excel files, inconsistently formatted, and buried in portals that are unintuitive and rarely updated. It can take hours just to locate, extract, and clean data before any analysis can begin.</p>
-        <p>+254 makes data from official Kenyan sources easier to find, retrieve, and use, in formats that are ready for real work. The goal is straightforward: public data should be accessible, not just available. We hope this makes it easier for researchers, journalists, developers, and policymakers to work with the numbers that shape Kenya.</p>
+        {content.sections.mission.paragraphs.map((p) => <p set:html={p} />)}
       </div>
     </section>
 
     <section class="section section--sourcing" id="how-we-source-data">
-      <span class="eyebrow">How we source data</span>
+      <span class="eyebrow">{content.sections.sourcing.eyebrow}</span>
       <div class="narrative">
-        <p>All our data comes exclusively from official Kenyan government institutions and their public publications. Each dataset links back to its original source, so you can always trace where it came from and cite it if needed.</p>
-        <p>Datasets are updated live: whenever a source publishes new data, it flows through our extraction pipeline automatically. Everything is cleaned and standardized from extraction, with no imputation of any kind. Check the <a href="/datasets/">full catalog</a> for details on what's available and how each dataset is structured.</p>
-        <p>Our catalog is always growing. Know a source that should be added? Open a GitHub issue with the URL and a description of what it contains.</p>
+        {content.sections.sourcing.paragraphs.map((p) => <p set:html={p} />)}
       </div>
     </section>
 
     <section class="section section--process" id="data-processing-decisions">
-      <span class="eyebrow">How we process data</span>
+      <span class="eyebrow">{content.sections.process.eyebrow}</span>
 
       <div class="process-grid">
-        <div class="process-step">
-          <span class="step-number">01</span>
-          <h3 class="step-title">Extraction</h3>
-          <p class="step-desc">Raw data comes in a dozen different formats. We extract it all into a single consistent structure, so you never have to deal with the original mess.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-number">02</span>
-          <h3 class="step-title">Validation</h3>
-          <p class="step-desc">Sources contain errors, gaps, and inconsistencies. We validate every column against a defined schema to catch problems before they reach you.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-number">03</span>
-          <h3 class="step-title">Cleaning</h3>
-          <p class="step-desc">Date formats, units, column names: we standardize the presentation without touching the underlying values.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-number">04</span>
-          <h3 class="step-title">Publication</h3>
-          <p class="step-desc">Every dataset is served through the same REST API, with the same JSON format, pagination, and query patterns. Learn one, and you know them all.</p>
-        </div>
+        {content.sections.process.steps.map((step) => (
+          <div class="process-step">
+            <span class="step-number">{step.number}</span>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">{step.description}</p>
+          </div>
+        ))}
       </div>
     </section>
 
     <section class="section section--conventions" id="conventions">
-      <span class="eyebrow">Conventions</span>
+      <span class="eyebrow">{content.sections.conventions.eyebrow}</span>
       <div class="conventions-grid">
-        <div class="convention-item">
-          <h4 class="convention-term">Long-form data</h4>
-          <p class="convention-desc">Every dataset uses a <code>metric</code> and <code>value</code> column pair instead of one column per indicator.</p>
-        </div>
-        <div class="convention-item">
-          <h4 class="convention-term">snake_case columns</h4>
-          <p class="convention-desc">All column names are snake_case: <code>fiscal_year</code>, <code>area_name</code>, <code>sale_week</code>.</p>
-        </div>
-        <div class="convention-item">
-          <h4 class="convention-term">Lowercased values</h4>
-          <p class="convention-desc">Every string value is lowercased: months (<code>january</code>), metric names (<code>total revenue</code>), country names (<code>united states dollar</code>), counties (<code>nairobi</code>).</p>
-        </div>
-        <div class="convention-item">
-          <h4 class="convention-term">Clean numeric values</h4>
-          <p class="convention-desc">Commas and other formatting are stripped. Every <code>value</code> column is numeric. Rows where a value was not reported are omitted.</p>
-        </div>
-        <div class="convention-item">
-          <h4 class="convention-term">Schema patterns</h4>
-          <p class="convention-desc">Monthly data has <code>year</code> and <code>month</code>, quarterly has <code>year</code> and <code>quarter</code>, annual has just <code>year</code>, and geographic datasets include <code>area_name</code>.</p>
-        </div>
-        <div class="convention-item">
-          <h4 class="convention-term">No imputation</h4>
-          <p class="convention-desc">Values are reported as published. Nothing is estimated, interpolated, or filled in.</p>
-        </div>
+        {content.sections.conventions.items.map((item) => (
+          <div class="convention-item">
+            <h4 class="convention-term">{item.term}</h4>
+            <p class="convention-desc" set:html={item.description} />
+          </div>
+        ))}
       </div>
     </section>
 
     <section class="section section--support" id="support">
-      <span class="eyebrow">Support & contributions</span>
-      <p class="section-intro">+254 is an open-source project. The code, pipelines, and dataset definitions are available on GitHub.</p>
+      <span class="eyebrow">{content.sections.support.eyebrow}</span>
+      <p class="section-intro">{content.sections.support.intro}</p>
 
       <div class="support-items">
-        <div class="support-item">
-          <span class="support-item-label">Report an issue.</span>
-          <span class="support-item-text">If you find incorrect data, missing values, or unexpected API behavior, open a GitHub issue.</span>
-        </div>
-        <div class="support-item">
-          <span class="support-item-label">Suggest a dataset.</span>
-          <span class="support-item-text">Know a source that should be added? Open an issue with the URL and a description of its contents.</span>
-        </div>
-        <div class="support-item">
-          <span class="support-item-label">Contribute code.</span>
-          <span class="support-item-text">Pull requests are welcome. The codebase uses descriptive variable names and consistent pipeline patterns, making it straightforward to extend.</span>
-        </div>
+        {content.sections.support.items.map((item) => (
+          <div class="support-item">
+            <span class="support-item-label">{item.label}</span>
+            <span class="support-item-text">{item.text}</span>
+          </div>
+        ))}
       </div>
     </section>
   </AboutLayout>

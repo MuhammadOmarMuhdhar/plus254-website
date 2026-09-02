@@ -1,162 +1,171 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import APIDocsLayout from "../../components/APIDocsLayout.astro";
----
 
-<BaseLayout title="Quickstart — +254 API Reference">
-  <APIDocsLayout activeSection="quickstart-page">
-
-    <header class="page-heading">
-      <h1>Quickstart</h1>
-    </header>
-
-    <section class="section">
-      <div class="narrative">
-        <p>
-          All endpoints are open and require no authentication.
-          Make a GET request to any endpoint and you'll receive a JSON response
-          immediately. All endpoints accept <code>limit</code> and
-          <code>offset</code> query parameters for pagination. Responses include
-          a <code>total</code> field indicating the full number of records
-          matching your query, so you can paginate through the complete result set.
-        </p>
-      </div>
-
-      <div class="url-display">
-        <span class="url-prompt">$</span>
-        <span class="url-text">https://api.plus254.co.ke/v1</span>
-        <span class="url-cursor" aria-hidden="true"></span>
-      </div>
-    </section>
-
-    <section class="section">
-      <span class="eyebrow">Your First Request</span>
-      <div class="narrative">
-        <p>Try listing the available datasets:</p>
-      </div>
-
-      <div class="lang-tabs" role="tablist">
-        <button class="lang-tab active" role="tab" aria-selected="true">curl</button>
-        <button class="lang-tab" role="tab" aria-selected="false">Python</button>
-        <button class="lang-tab" role="tab" aria-selected="false">JavaScript</button>
-      </div>
-
-      <div class="code-panel active">
-        <pre class="code-block"><code>curl "https://api.plus254.co.ke/v1/datasets?limit=2"</code></pre>
-      </div>
-      <div class="code-panel">
-        <pre class="code-block"><code>import requests
+const content = {
+  title: "Quickstart",
+  intro: {
+    paragraphs: [
+      "All endpoints are open and require no authentication. Make a GET request to any endpoint and you'll receive a JSON response immediately. All endpoints accept <code>limit</code> and <code>offset</code> query parameters for pagination. Responses include a <code>total</code> field indicating the full number of records matching your query, so you can paginate through the complete result set.",
+    ],
+    url: "https://api.plus254.co.ke/v1",
+  },
+  firstRequest: {
+    eyebrow: "Your First Request",
+    lead: "Try listing the available datasets:",
+    samples: [
+      { lang: "curl", code: `curl "https://api.plus254.co.ke/v1/datasets?limit=2"` },
+      {
+        lang: "Python",
+        code: `import requests
 
 url = "https://api.plus254.co.ke/v1/datasets"
-params = &#123;"limit": 2&#125;
+params = {"limit": 2}
 
 response = requests.get(url, params=params)
-print(response.json())</code></pre>
-      </div>
-      <div class="code-panel">
-        <pre class="code-block"><code>fetch("https://api.plus254.co.ke/v1/datasets?limit=2")
-  .then(r =&gt; r.json())
-  .then(data =&gt; console.log(data));</code></pre>
-      </div>
-
-      <div class="response-indicator">Response</div>
-
-      <pre class="code-block response-block"><code>&#123;
-  "metadata": &#123;
-    "resultset": &#123;
+print(response.json())`,
+      },
+      {
+        lang: "JavaScript",
+        code: `fetch("https://api.plus254.co.ke/v1/datasets?limit=2")
+  .then(r => r.json())
+  .then(data => console.log(data));`,
+      },
+    ],
+    responseLabel: "Response",
+    response: `{
+  "metadata": {
+    "resultset": {
       "count": 45,
       "offset": 0,
       "limit": 2
-    &#125;
-  &#125;,
+    }
+  },
   "results": [
-    &#123;
+    {
       "config": "forex_period_average",
       "name": "Monthly Exchange Rates (Period Average)",
       "category": "economy",
       "description": "Monthly exchange rates of major currencies against KES (period average)",
       "source": "Central Bank of Kenya",
       "url": "https://www.centralbank.go.ke/..."
-    &#125;,
-    &#123;
+    },
+    {
       "config": "tea",
       "name": "Tea Production and Exports",
       "category": "agriculture",
       "description": "Weekly tea auction data",
       "source": "Tea Board of Kenya",
       "url": "https://eatta.co.ke/statistics"
-    &#125;
+    }
   ]
-&#125;</code></pre>
+}`,
+  },
+  pagination: {
+    eyebrow: "Pagination",
+    paragraphs: [
+      "All list and data responses are paginated. Use <code>limit</code> and <code>offset</code> to control what you receive.",
+    ],
+    table: {
+      headers: ["Parameter", "Type", "Default", "Max", "Description"],
+      rows: [
+        { param: "category", type: "string", default: "—", max: "—", description: "Filter by topic (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)" },
+        { param: "limit", type: "integer", default: "100", max: "100", description: "Maximum records to return" },
+        { param: "offset", type: "integer", default: "0", max: "—", description: "Number of records to skip" },
+      ],
+    },
+    patterns: {
+      header: "Common Patterns",
+      rows: [
+        { label: "Filter by category", code: "GET /datasets?category=economy" },
+        { label: "First page", code: "GET /datasets?limit=100&offset=0" },
+        { label: "Next page", code: "GET /datasets?limit=100&offset=100" },
+        { label: "Last page", code: "offset = count - (count % limit)" },
+      ],
+    },
+  },
+  next: { label: "Explore all endpoints", href: "/api-docs/endpoints/" },
+};
+---
+
+<BaseLayout title="Quickstart — +254 API Reference">
+  <APIDocsLayout activeSection="quickstart-page">
+
+    <header class="page-heading">
+      <h1>{content.title}</h1>
+    </header>
+
+    <section class="section">
+      <div class="narrative">
+        {content.intro.paragraphs.map((p) => <p set:html={p} />)}
+      </div>
+
+      <div class="url-display">
+        <span class="url-prompt">$</span>
+        <span class="url-text">{content.intro.url}</span>
+        <span class="url-cursor" aria-hidden="true"></span>
+      </div>
     </section>
 
     <section class="section">
-      <span class="eyebrow">Pagination</span>
+      <span class="eyebrow">{content.firstRequest.eyebrow}</span>
       <div class="narrative">
-        <p>
-          All list and data responses are paginated. Use <code>limit</code> and
-          <code>offset</code> to control what you receive.
-        </p>
+        <p>{content.firstRequest.lead}</p>
+      </div>
+
+      <div class="lang-tabs" role="tablist">
+        {content.firstRequest.samples.map((sample, i) => (
+          <button class:list={["lang-tab", { active: i === 0 }]} role="tab" aria-selected={i === 0 ? "true" : "false"}>{sample.lang}</button>
+        ))}
+      </div>
+
+      {content.firstRequest.samples.map((sample, i) => (
+        <div class:list={["code-panel", { active: i === 0 }]}>
+          <pre class="code-block"><code>{sample.code}</code></pre>
+        </div>
+      ))}
+
+      <div class="response-indicator">{content.firstRequest.responseLabel}</div>
+
+      <pre class="code-block response-block"><code>{content.firstRequest.response}</code></pre>
+    </section>
+
+    <section class="section">
+      <span class="eyebrow">{content.pagination.eyebrow}</span>
+      <div class="narrative">
+        {content.pagination.paragraphs.map((p) => <p set:html={p} />)}
       </div>
 
       <table class="param-table">
         <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Max</th>
-            <th>Description</th>
-          </tr>
+          <tr>{content.pagination.table.headers.map((h) => <th>{h}</th>)}</tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Parameter"><code>category</code></td>
-            <td data-label="Type">string</td>
-            <td data-label="Default">—</td>
-            <td data-label="Max">—</td>
-            <td data-label="Description">Filter by topic (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)</td>
-          </tr>
-          <tr>
-            <td data-label="Parameter"><code>limit</code></td>
-            <td data-label="Type">integer</td>
-            <td data-label="Default">100</td>
-            <td data-label="Max">100</td>
-            <td data-label="Description">Maximum records to return</td>
-          </tr>
-          <tr>
-            <td data-label="Parameter"><code>offset</code></td>
-            <td data-label="Type">integer</td>
-            <td data-label="Default">0</td>
-            <td data-label="Max">—</td>
-            <td data-label="Description">Number of records to skip</td>
-          </tr>
+          {content.pagination.table.rows.map((row) => (
+            <tr>
+              <td data-label="Parameter"><code>{row.param}</code></td>
+              <td data-label="Type">{row.type}</td>
+              <td data-label="Default">{row.default}</td>
+              <td data-label="Max">{row.max}</td>
+              <td data-label="Description" set:html={row.description} />
+            </tr>
+          ))}
         </tbody>
       </table>
 
       <div class="common-patterns">
-        <div class="common-patterns-header">Common Patterns</div>
-        <div class="pattern-row">
-          <span class="pattern-label">Filter by category</span>
-          <code class="pattern-code">GET /datasets?category=economy</code>
-        </div>
-        <div class="pattern-row">
-          <span class="pattern-label">First page</span>
-          <code class="pattern-code">GET /datasets?limit=100&amp;offset=0</code>
-        </div>
-        <div class="pattern-row">
-          <span class="pattern-label">Next page</span>
-          <code class="pattern-code">GET /datasets?limit=100&amp;offset=100</code>
-        </div>
-        <div class="pattern-row">
-          <span class="pattern-label">Last page</span>
-          <code class="pattern-code">offset = count - (count % limit)</code>
-        </div>
+        <div class="common-patterns-header">{content.pagination.patterns.header}</div>
+        {content.pagination.patterns.rows.map((row) => (
+          <div class="pattern-row">
+            <span class="pattern-label">{row.label}</span>
+            <code class="pattern-code">{row.code}</code>
+          </div>
+        ))}
       </div>
     </section>
 
-    <a href="/api-docs/endpoints/" class="next-btn">
-      Explore all endpoints
+    <a href={content.next.href} class="next-btn">
+      {content.next.label}
     </a>
   </APIDocsLayout>
 </BaseLayout>

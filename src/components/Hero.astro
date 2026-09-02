@@ -1,14 +1,28 @@
 ---
-
+const content = {
+  title: "Kenya's Data.",
+  titleBreak: "In Machine Readable Format.",
+  description:
+    "Data about Kenya is buried in PDFs, scattered across messy spreadsheets, poorly documented, and hard to access. +254 turns that mess into a reliable resource — we ingest, normalize, and serve official data through a plug-and-play API, ready to power dashboards, tools, and better decision-making.",
+  ctas: [
+    { label: "Explore data", href: "/datasets/", variant: "primary" },
+    { label: "API docs", href: "/api-docs/", variant: "secondary" },
+  ],
+};
 ---
 
 <section class="hero">
   <div class="hero-text">
-    <h1>Kenya's data.<br />Open and accessible.</h1>
-    <p>Data about Kenya is buried in PDFs, messy Excel files, poorly documented, and hard to access. Getting it ready for analysis or development is a headache. +254 extracts data from Kenyan institutions, cleans and processes it, and serves it through a plug-and-play API.</p>
+    <h1>{content.title}<br />{content.titleBreak}</h1>
+    <p>{content.description}</p>
     <div class="hero-btns">
-      <a href="/datasets/" class="btn-primary">Explore data <span aria-hidden="true">→</span></a>
-      <a href="/api-docs/" class="btn-secondary">API docs <span aria-hidden="true">→</span></a>
+      {
+        content.ctas.map((cta) => (
+          <a href={cta.href} class={cta.variant === "primary" ? "btn-primary" : "btn-secondary"}>
+            {cta.label} <span aria-hidden="true">→</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -29,7 +43,7 @@
     line-height: 1.25;
     letter-spacing: -0.02em;
     color: var(--color-warm-dark);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
     margin-top: 0;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -42,8 +56,9 @@
     font-weight: var(--font-regular);
     color: var(--color-warm-light);
     line-height: 1.6;
+    margin-top: var(--space-xs);
     margin-bottom: var(--space-md);
-    max-width: 62ch;
+    max-width: 75ch;
     text-wrap: pretty;
   }
 
@@ -73,8 +88,8 @@
   }
 
   .hero-btns .btn-primary:hover {
-    background: transparent;
-    color: var(--color-green);
+    /* background: transparent; */
+    color: #fff;
     transform: scale(1.03);
     box-shadow: var(--shadow-sm);
   }
@@ -85,8 +100,8 @@
   }
 
   .hero-btns .btn-secondary:hover {
-    background: var(--color-green);
-    color: #fff;
+    /* background: var(--color-green); */
+    color: var(--color-green);
     transform: scale(1.03);
     box-shadow: var(--shadow-sm);
   }

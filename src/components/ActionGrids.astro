@@ -1,59 +1,78 @@
+---
+import { getCollection } from "astro:content";
+
+const datasetCount = (await getCollection("dataset")).length;
+
+const content = {
+  title: "Quick Links",
+  groups: [
+    {
+      label: "Discover",
+      items: [
+        {
+          title: "Browse Datasets",
+          href: "/datasets/",
+          desc: `${datasetCount} ${datasetCount === 1 ? "dataset" : "datasets"} across the Kenyan economy, agriculture, and governance.`,
+        },
+        {
+          title: "Data Sources",
+          href: "/about/#how-we-source-data",
+          desc: "Where the data comes from and how it is collected and updated.",
+        },
+        {
+          title: "Our Mission",
+          href: "/about/#mission",
+          desc: "Why +254 exists and what it is trying to do.",
+        },
+      ],
+    },
+    {
+      label: "Developers",
+      items: [
+        {
+          title: "API Reference",
+          href: "/api-docs/",
+          desc: "Full endpoint and parameter documentation with examples.",
+        },
+        {
+          title: "Data Conventions",
+          href: "/about/#conventions",
+          desc: "How datasets are structured: long-form, snake_case, clean numerics, and more.",
+        },
+        {
+          title: "Support",
+          href: "/about/#support",
+          desc: "Report issues, suggest datasets, or contribute on GitHub.",
+        },
+      ],
+    },
+  ],
+};
+---
+
 <section class="action-groups">
-  <h2 class="section-title">Quick Links</h2>
+  <h2 class="section-title">{content.title}</h2>
 
-  <div class="group">
-    <span class="group-label">Discover</span>
-    <div class="action-grid action-grid--medium">
-      <a href="/datasets/" class="action-item">
-        <div class="action-header">
-          <span class="action-title">Browse Datasets</span>
-          <span class="action-arrow" aria-hidden="true">→</span>
+  {
+    content.groups.map((group) => (
+      <div class="group">
+        <span class="group-label">{group.label}</span>
+        <div class="action-grid action-grid--medium">
+          {
+            group.items.map((item) => (
+              <a href={item.href} class="action-item">
+                <div class="action-header">
+                  <span class="action-title">{item.title}</span>
+                  <span class="action-arrow" aria-hidden="true">→</span>
+                </div>
+                <p class="action-desc">{item.desc}</p>
+              </a>
+            ))
+          }
         </div>
-        <p class="action-desc">37 datasets across the Kenyan economy, agriculture, and governance.</p>
-      </a>
-      <a href="/about/#how-we-source-data" class="action-item">
-        <div class="action-header">
-          <span class="action-title">Data Sources</span>
-          <span class="action-arrow" aria-hidden="true">→</span>
-        </div>
-        <p class="action-desc">Where the data comes from and how it is collected and updated.</p>
-      </a>
-      <a href="/about/#mission" class="action-item">
-        <div class="action-header">
-          <span class="action-title">Our Mission</span>
-          <span class="action-arrow" aria-hidden="true">→</span>
-        </div>
-        <p class="action-desc">Why +254 exists and what it is trying to do.</p>
-      </a>
-    </div>
-  </div>
-
-  <div class="group">
-    <span class="group-label">Developers</span>
-    <div class="action-grid action-grid--medium">
-      <a href="/api-docs/" class="action-item">
-        <div class="action-header">
-          <span class="action-title">API Reference</span>
-          <span class="action-arrow" aria-hidden="true">→</span>
-        </div>
-        <p class="action-desc">Full endpoint and parameter documentation with examples.</p>
-      </a>
-      <a href="/about/#conventions" class="action-item">
-        <div class="action-header">
-          <span class="action-title">Data Conventions</span>
-          <span class="action-arrow" aria-hidden="true">→</span>
-        </div>
-        <p class="action-desc">How datasets are structured: long-form, snake_case, clean numerics, and more.</p>
-      </a>
-      <a href="/about/#support" class="action-item">
-        <div class="action-header">
-          <span class="action-title">Support</span>
-          <span class="action-arrow" aria-hidden="true">→</span>
-        </div>
-        <p class="action-desc">Report issues, suggest datasets, or contribute on GitHub.</p>
-      </a>
-    </div>
-  </div>
+      </div>
+    ))
+  }
 </section>
 
 <style>

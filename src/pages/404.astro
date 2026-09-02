@@ -1,20 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const content = {
+  code: "404",
+  title: "Page not found",
+  description: "The page you're looking for doesn't exist or has been moved. If you followed a link from somewhere, please <a href=\"https://github.com/plus254/plus254/issues\">let us know</a>.",
+  actions: [
+    { label: "Go home", href: "/", variant: "primary" },
+    { label: "Browse datasets", href: "/datasets/", variant: "secondary" },
+    { label: "API docs", href: "/api-docs/", variant: "secondary" },
+  ],
+};
 ---
 
 <BaseLayout title="Page not found — +254">
   <div class="error-page">
-    <span class="error-code" aria-hidden="true">404</span>
-    <h1 class="error-title">Page not found</h1>
-    <p class="error-desc">
-      The page you're looking for doesn't exist or has been moved.
-      If you followed a link from somewhere, please
-      <a href="https://github.com/plus254/plus254/issues">let us know</a>.
-    </p>
+    <span class="error-code" aria-hidden="true">{content.code}</span>
+    <h1 class="error-title">{content.title}</h1>
+    <p class="error-desc" set:html={content.description} />
     <div class="error-actions">
-      <a href="/" class="btn-primary">Go home</a>
-      <a href="/datasets/" class="btn-secondary">Browse datasets</a>
-      <a href="/api-docs/" class="btn-secondary">API docs</a>
+      {content.actions.map((action) => (
+        <a href={action.href} class={action.variant === "primary" ? "btn-primary" : "btn-secondary"}>
+          {action.label}
+        </a>
+      ))}
     </div>
   </div>
 </BaseLayout>

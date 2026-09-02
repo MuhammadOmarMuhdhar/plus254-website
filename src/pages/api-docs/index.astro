@@ -1,63 +1,71 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import APIDocsLayout from "../../components/APIDocsLayout.astro";
+
+const content = {
+  title: "API Reference",
+  overview: {
+    eyebrow: "Overview",
+    paragraphs: [
+      "Make a GET request to <code>/v1/datasets?category=economy</code> to list available datasets. All responses are paginated JSON with a consistent structure across endpoints.",
+      "Datasets are organized across Economy, Agriculture, and Governance. See the <a href=\"/datasets/\">Datasets</a> page for the full catalog with column descriptions and sample data.",
+    ],
+  },
+  documentation: {
+    eyebrow: "Documentation",
+    cards: [
+      {
+        title: "Quickstart",
+        href: "/api-docs/quickstart/",
+        description: "Make your first API call in under 10 seconds. No authentication required.",
+      },
+      {
+        title: "Endpoints",
+        href: "/api-docs/endpoints/",
+        description: "Available paths, parameters, and request examples for every endpoint.",
+      },
+      {
+        title: "Response Format",
+        href: "/api-docs/response-format/",
+        description: "JSON structure, field definitions, and pagination metadata.",
+      },
+      {
+        title: "Error Handling",
+        href: "/api-docs/errors/",
+        description: "Status codes, error response format, and what to do when things go wrong.",
+      },
+    ],
+  },
+};
 ---
 
 <BaseLayout title="API Reference — plus254">
   <APIDocsLayout activeSection="quickstart">
     <header class="page-heading">
-      <h1>API Reference</h1>
+      <h1>{content.title}</h1>
     </header>
 
     <section class="section" id="overview">
-      <span class="eyebrow">Overview</span>
+      <span class="eyebrow">{content.overview.eyebrow}</span>
       <div class="narrative">
-        <p>
-          Make a GET request to <code>/v1/datasets?category=economy</code> to list available datasets.
-          All responses are paginated JSON with a consistent structure across endpoints.
-        </p>
-        <p>
-          Datasets are organized across Economy, Agriculture, and Governance.
-          See the <a href="/datasets/">Datasets</a> page for the full catalog with
-          column descriptions and sample data.
-        </p>
+        {content.overview.paragraphs.map((p) => <p set:html={p} />)}
       </div>
     </section>
 
     <section class="section" id="documentation">
-      <span class="eyebrow">Documentation</span>
+      <span class="eyebrow">{content.documentation.eyebrow}</span>
       <div class="ds-grid">
-        <a href="/api-docs/quickstart/" class="ds-card">
-          <div class="ds-card-header">
-            <span class="ds-card-title">Quickstart</span>
-            <span class="ds-card-arrow" aria-hidden="true">&rarr;</span>
-          </div>
-          <p class="ds-card-desc">Make your first API call in under 10 seconds. No authentication required.</p>
-        </a>
-
-        <a href="/api-docs/endpoints/" class="ds-card">
-          <div class="ds-card-header">
-            <span class="ds-card-title">Endpoints</span>
-            <span class="ds-card-arrow" aria-hidden="true">&rarr;</span>
-          </div>
-          <p class="ds-card-desc">Available paths, parameters, and request examples for every endpoint.</p>
-        </a>
-
-        <a href="/api-docs/response-format/" class="ds-card">
-          <div class="ds-card-header">
-            <span class="ds-card-title">Response Format</span>
-            <span class="ds-card-arrow" aria-hidden="true">&rarr;</span>
-          </div>
-          <p class="ds-card-desc">JSON structure, field definitions, and pagination metadata.</p>
-        </a>
-
-        <a href="/api-docs/errors/" class="ds-card">
-          <div class="ds-card-header">
-            <span class="ds-card-title">Error Handling</span>
-            <span class="ds-card-arrow" aria-hidden="true">&rarr;</span>
-          </div>
-          <p class="ds-card-desc">Status codes, error response format, and what to do when things go wrong.</p>
-        </a>
+        {
+          content.documentation.cards.map((card) => (
+            <a href={card.href} class="ds-card">
+              <div class="ds-card-header">
+                <span class="ds-card-title">{card.title}</span>
+                <span class="ds-card-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+              <p class="ds-card-desc">{card.description}</p>
+            </a>
+          ))
+        }
       </div>
     </section>
   </APIDocsLayout>

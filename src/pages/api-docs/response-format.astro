@@ -1,158 +1,181 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import APIDocsLayout from "../../components/APIDocsLayout.astro";
+
+const content = {
+  title: "Response Format",
+  sections: [
+    {
+      eyebrow: "JSON Structure",
+      paragraphs: [
+        "Every successful endpoint returns JSON. All list and data responses include a <code>metadata.resultset</code> object describing pagination.",
+      ],
+      panels: [
+        {
+          wrapper: "common-patterns",
+          title: "Shared Pagination Object",
+          headers: ["Field", "Type", "Description"],
+          rows: [
+            ["metadata.resultset.count", "number", "Total number of records available"],
+            ["metadata.resultset.offset", "number", "Number of records skipped"],
+            ["metadata.resultset.limit", "number", "Maximum records in this response"],
+          ],
+        },
+      ],
+    },
+    {
+      eyebrow: "List Datasets",
+      signature: { method: "GET", path: "/v1/datasets" },
+      panels: [
+        {
+          title: "Response Fields",
+          headers: ["Field", "Type", "Description"],
+          rows: [
+            ["metadata", "object", "Wrapper containing pagination metadata"],
+            ["metadata.resultset", "object", "Pagination state (see shared object above)"],
+            ["results[]", "array", "Array of dataset objects"],
+            ["results[].config", "string", "Dataset config name, used in path parameters"],
+            ["results[].name", "string", "Human-readable dataset title"],
+            ["results[].category", "string", "Topic category (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)"],
+            ["results[].description", "string", "Short description of the dataset"],
+            ["results[].source", "string", "Institution that publishes the data"],
+            ["results[].url", "string", "Link to the original source"],
+          ],
+        },
+      ],
+    },
+    {
+      eyebrow: "Single Dataset",
+      signature: { method: "GET", path: "/v1/datasets/{config_name}" },
+      panels: [
+        {
+          title: "Response Fields",
+          headers: ["Field", "Type", "Description"],
+          rows: [
+            ["metadata", "object", "Wrapper containing pagination metadata"],
+            ["metadata.resultset", "object", "Pagination state (see shared object above)"],
+            ["category", "string", "Topic category (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)"],
+            ["source", "string", "Institution that publishes the data"],
+            ["description", "string", "Short description of the dataset"],
+            ["url", "string", "Link to the original source"],
+            ["results[]", "array", "Array of data records. Fields correspond to the dataset's columns"],
+          ],
+        },
+      ],
+    },
+    {
+      eyebrow: "Dataset Info",
+      signature: { method: "GET", path: "/v1/datasets/{config_name}/info" },
+      panels: [
+        {
+          title: "Response Fields",
+          headers: ["Field", "Type", "Description"],
+          rows: [
+            ["config", "string", "Dataset config name"],
+            ["name", "string", "Human-readable dataset title"],
+            ["category", "string", "Topic category"],
+            ["description", "string", "Short description of the dataset"],
+            ["source", "string", "Institution that publishes the data"],
+            ["url", "string", "Link to the original source"],
+          ],
+        },
+      ],
+    },
+    {
+      eyebrow: "Dataset Schema",
+      signature: { method: "GET", path: "/v1/datasets/{config_name}/schema" },
+      panels: [
+        {
+          title: "Response Fields",
+          headers: ["Field", "Type", "Description"],
+          rows: [
+            ["config", "string", "Dataset config name"],
+            ["category", "string", "Topic category"],
+            ["name", "string", "Human-readable dataset title"],
+            ["source", "string", "Institution that publishes the data"],
+            ["row_count", "number", "Total number of records in the dataset"],
+            ["columns[]", "array", "Column definitions (see below)"],
+          ],
+        },
+        {
+          title: "Column Object Fields",
+          headers: ["Field", "Type", "Description"],
+          rows: [
+            ["name", "string", "Column name"],
+            ["type", "string", "Data type (<code>int64</code>, <code>float64</code>, <code>object</code>)"],
+            ["description", "string", "What the column represents"],
+            ["nullable", "boolean", "Whether null values are allowed"],
+            ["null_count", "number", "Number of null values"],
+            ["sample_values", "array", "Up to 5 example values from the column"],
+            ["stats", "object|null", "Numeric summary (mean, std, min, max, quartiles) for numeric columns; <code>null</code> for non-numeric"],
+          ],
+        },
+      ],
+    },
+  ],
+  next: { label: "Next: Error Handling", href: "/api-docs/errors/" },
+};
 ---
 
 <BaseLayout title="Response Format — +254 API Reference">
   <APIDocsLayout activeSection="response">
     <header class="page-heading">
-      <h1>Response Format</h1>
+      <h1>{content.title}</h1>
     </header>
 
-    <section class="section">
-      <span class="eyebrow">JSON Structure</span>
-      <div class="narrative">
-        <p>
-          Every successful endpoint returns JSON. All list and data responses
-          include a <code>metadata.resultset</code> object describing pagination.
-        </p>
-      </div>
+    {content.sections.map((section) => (
+      <section class="section">
+        <span class="eyebrow">{section.eyebrow}</span>
 
-      <div class="common-patterns">
-        <div class="common-patterns-header">Shared Pagination Object</div>
-        <table class="dataset-table">
-          <thead>
-            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr><td data-label="Field"><code>metadata.resultset.count</code></td><td data-label="Type">number</td><td data-label="Description">Total number of records available</td></tr>
-            <tr><td data-label="Field"><code>metadata.resultset.offset</code></td><td data-label="Type">number</td><td data-label="Description">Number of records skipped</td></tr>
-            <tr><td data-label="Field"><code>metadata.resultset.limit</code></td><td data-label="Type">number</td><td data-label="Description">Maximum records in this response</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+        {section.paragraphs && (
+          <div class="narrative">
+            {section.paragraphs.map((p) => <p set:html={p} />)}
+          </div>
+        )}
 
-    <section class="section">
-      <span class="eyebrow">List Datasets</span>
-      <p class="endpoint-signature">
-        <span class="method get">GET</span>
-        <code>/v1/datasets</code>
-      </p>
-      <div class="dataset-panel">
-        <h4>Response Fields</h4>
-        <table class="dataset-table">
-          <thead>
-            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr><td data-label="Field"><code>metadata</code></td><td data-label="Type">object</td><td data-label="Description">Wrapper containing pagination metadata</td></tr>
-            <tr><td data-label="Field"><code>metadata.resultset</code></td><td data-label="Type">object</td><td data-label="Description">Pagination state (see shared object above)</td></tr>
-            <tr><td data-label="Field"><code>results[]</code></td><td data-label="Type">array</td><td data-label="Description">Array of dataset objects</td></tr>
-            <tr><td data-label="Field"><code>results[].config</code></td><td data-label="Type">string</td><td data-label="Description">Dataset config name, used in path parameters</td></tr>
-            <tr><td data-label="Field"><code>results[].name</code></td><td data-label="Type">string</td><td data-label="Description">Human-readable dataset title</td></tr>
-            <tr><td data-label="Field"><code>results[].category</code></td><td data-label="Type">string</td><td data-label="Description">Topic category (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)</td></tr>
-            <tr><td data-label="Field"><code>results[].description</code></td><td data-label="Type">string</td><td data-label="Description">Short description of the dataset</td></tr>
-            <tr><td data-label="Field"><code>results[].source</code></td><td data-label="Type">string</td><td data-label="Description">Institution that publishes the data</td></tr>
-            <tr><td data-label="Field"><code>results[].url</code></td><td data-label="Type">string</td><td data-label="Description">Link to the original source</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+        {section.signature && (
+          <p class="endpoint-signature">
+            <span class="method get">{section.signature.method}</span>
+            <code>{section.signature.path}</code>
+          </p>
+        )}
 
-    <section class="section">
-      <span class="eyebrow">Single Dataset</span>
-      <p class="endpoint-signature">
-        <span class="method get">GET</span>
-        <code>/v1/datasets/&#123;config_name&#125;</code>
-      </p>
-      <div class="dataset-panel">
-        <h4>Response Fields</h4>
-        <table class="dataset-table">
-          <thead>
-            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr><td data-label="Field"><code>metadata</code></td><td data-label="Type">object</td><td data-label="Description">Wrapper containing pagination metadata</td></tr>
-            <tr><td data-label="Field"><code>metadata.resultset</code></td><td data-label="Type">object</td><td data-label="Description">Pagination state (see shared object above)</td></tr>
-            <tr><td data-label="Field"><code>category</code></td><td data-label="Type">string</td><td data-label="Description">Topic category (<code>economy</code>, <code>agriculture</code>, <code>governance</code>)</td></tr>
-            <tr><td data-label="Field"><code>source</code></td><td data-label="Type">string</td><td data-label="Description">Institution that publishes the data</td></tr>
-            <tr><td data-label="Field"><code>description</code></td><td data-label="Type">string</td><td data-label="Description">Short description of the dataset</td></tr>
-            <tr><td data-label="Field"><code>url</code></td><td data-label="Type">string</td><td data-label="Description">Link to the original source</td></tr>
-            <tr><td data-label="Field"><code>results[]</code></td><td data-label="Type">array</td><td data-label="Description">Array of data records. Fields correspond to the dataset's columns</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+        {section.panels.map((panel) => {
+          const table = (
+            <table class="dataset-table">
+              <thead>
+                <tr>{panel.headers.map((h) => <th>{h}</th>)}</tr>
+              </thead>
+              <tbody>
+                {panel.rows.map((row) => (
+                  <tr>
+                    {row.map((cell, i) =>
+                      i === 0
+                        ? <td data-label={panel.headers[i]}><code>{cell}</code></td>
+                        : <td data-label={panel.headers[i]} set:html={cell} />,
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          );
+          return panel.wrapper === "common-patterns" ? (
+            <div class="common-patterns">
+              <div class="common-patterns-header">{panel.title}</div>
+              {table}
+            </div>
+          ) : (
+            <div class="dataset-panel">
+              <h4>{panel.title}</h4>
+              {table}
+            </div>
+          );
+        })}
+      </section>
+    ))}
 
-    <section class="section">
-      <span class="eyebrow">Dataset Info</span>
-      <p class="endpoint-signature">
-        <span class="method get">GET</span>
-        <code>/v1/datasets/&#123;config_name&#125;/info</code>
-      </p>
-      <div class="dataset-panel">
-        <h4>Response Fields</h4>
-        <table class="dataset-table">
-          <thead>
-            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr><td data-label="Field"><code>config</code></td><td data-label="Type">string</td><td data-label="Description">Dataset config name</td></tr>
-            <tr><td data-label="Field"><code>name</code></td><td data-label="Type">string</td><td data-label="Description">Human-readable dataset title</td></tr>
-            <tr><td data-label="Field"><code>category</code></td><td data-label="Type">string</td><td data-label="Description">Topic category</td></tr>
-            <tr><td data-label="Field"><code>description</code></td><td data-label="Type">string</td><td data-label="Description">Short description of the dataset</td></tr>
-            <tr><td data-label="Field"><code>source</code></td><td data-label="Type">string</td><td data-label="Description">Institution that publishes the data</td></tr>
-            <tr><td data-label="Field"><code>url</code></td><td data-label="Type">string</td><td data-label="Description">Link to the original source</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="section">
-      <span class="eyebrow">Dataset Schema</span>
-      <p class="endpoint-signature">
-        <span class="method get">GET</span>
-        <code>/v1/datasets/&#123;config_name&#125;/schema</code>
-      </p>
-      <div class="dataset-panel">
-        <h4>Response Fields</h4>
-        <table class="dataset-table">
-          <thead>
-            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr><td data-label="Field"><code>config</code></td><td data-label="Type">string</td><td data-label="Description">Dataset config name</td></tr>
-            <tr><td data-label="Field"><code>category</code></td><td data-label="Type">string</td><td data-label="Description">Topic category</td></tr>
-            <tr><td data-label="Field"><code>name</code></td><td data-label="Type">string</td><td data-label="Description">Human-readable dataset title</td></tr>
-            <tr><td data-label="Field"><code>source</code></td><td data-label="Type">string</td><td data-label="Description">Institution that publishes the data</td></tr>
-            <tr><td data-label="Field"><code>row_count</code></td><td data-label="Type">number</td><td data-label="Description">Total number of records in the dataset</td></tr>
-            <tr><td data-label="Field"><code>columns[]</code></td><td data-label="Type">array</td><td data-label="Description">Column definitions (see below)</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="dataset-panel">
-        <h4>Column Object Fields</h4>
-        <table class="dataset-table">
-          <thead>
-            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr><td data-label="Field"><code>name</code></td><td data-label="Type">string</td><td data-label="Description">Column name</td></tr>
-            <tr><td data-label="Field"><code>type</code></td><td data-label="Type">string</td><td data-label="Description">Data type (<code>int64</code>, <code>float64</code>, <code>object</code>)</td></tr>
-            <tr><td data-label="Field"><code>description</code></td><td data-label="Type">string</td><td data-label="Description">What the column represents</td></tr>
-            <tr><td data-label="Field"><code>nullable</code></td><td data-label="Type">boolean</td><td data-label="Description">Whether null values are allowed</td></tr>
-            <tr><td data-label="Field"><code>null_count</code></td><td data-label="Type">number</td><td data-label="Description">Number of null values</td></tr>
-            <tr><td data-label="Field"><code>sample_values</code></td><td data-label="Type">array</td><td data-label="Description">Up to 5 example values from the column</td></tr>
-            <tr><td data-label="Field"><code>stats</code></td><td data-label="Type">object|null</td><td data-label="Description">Numeric summary (mean, std, min, max, quartiles) for numeric columns; <code>null</code> for non-numeric</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <a href="/api-docs/errors/" class="next-btn">
-      Next: Error Handling
+    <a href={content.next.href} class="next-btn">
+      {content.next.label}
     </a>
   </APIDocsLayout>
 </BaseLayout>

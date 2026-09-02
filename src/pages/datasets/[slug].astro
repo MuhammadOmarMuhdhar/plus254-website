@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DatasetsLayout from "../../components/DatasetsLayout.astro";
 import { getCollection, render } from "astro:content";
+import { topicNames } from "../../lib/datasets";
 
 export async function getStaticPaths() {
   const datasets = await getCollection("dataset");
@@ -13,11 +14,6 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const topicNames: Record<string, string> = {
-  economy: "Economy",
-  agriculture: "Agriculture",
-  governance: "Governance",
-};
 const topicLabel = topicNames[entry.data.category] ?? entry.data.category;
 ---
 

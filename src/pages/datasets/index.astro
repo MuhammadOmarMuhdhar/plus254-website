@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DatasetsLayout from "../../components/DatasetsLayout.astro";
 import { getCollection } from "astro:content";
+import { topicNames, topicOrder } from "../../lib/datasets";
 
 const datasets = await getCollection("dataset");
 const grouped = datasets.reduce(
@@ -11,13 +12,6 @@ const grouped = datasets.reduce(
   },
   {} as Record<string, typeof datasets>,
 );
-const topicNames: Record<string, string> = {
-  economy: "Economy",
-  agriculture: "Agriculture",
-  network: "Network",
-  governance: "Governance",
-};
-const topicOrder = ["economy", "agriculture", "network", "governance"];
 const sources = [...new Set(datasets.map((d) => d.data.source))];
 const categoryPlaceholder = "{category}";
 ---
