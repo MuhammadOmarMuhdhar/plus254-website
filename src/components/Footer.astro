@@ -1,7 +1,7 @@
 ---
 const content = {
-  tagline: "Kenya's data. Available and machine-readable.",
-  brand: { label: "+254", href: "/" },
+  tagline: "Kenya's data in machine-readable format.",
+  brand: { label: "plus254", href: "/" },
   navLinks: [
     { label: "About", href: "/about/#mission" },
     { label: "Support", href: "/about/#support" },
@@ -16,7 +16,7 @@ const content = {
   <div class="footer-main">
     <div class="footer-brand">
       <a href="/" class="footer-logo" aria-label="plus254 home">
-        <span class="logo-plus">+</span><span class="logo-num">254</span>
+        <span class="logo-text">plus<span class="logo-num">254</span></span>
       </a>
       <p class="footer-desc">{content.tagline}</p>
     </div>
@@ -71,7 +71,7 @@ const content = {
     outline-offset: 2px;
   }
 
-  .footer-logo .logo-plus {
+  .footer-logo .logo-text {
     font-family: var(--font-serif);
     font-size: var(--text-lg);
     font-weight: var(--font-semibold);
@@ -80,11 +80,7 @@ const content = {
   }
 
   .footer-logo .logo-num {
-    font-family: var(--font-serif);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
     color: var(--color-green);
-    letter-spacing: -0.02em;
   }
 
   .footer-desc {

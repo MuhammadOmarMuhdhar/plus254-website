@@ -10,8 +10,8 @@ export interface Props {
   description?: string;
 }
 
-const { title = "plus254", description = "Kenya's data. Available and machine-readable." } = Astro.props;
-const siteTitle = title.startsWith("+254") || title.includes("—") ? title : `${title} — +254`;
+const { title = "plus254", description = "Kenya's data in machine-readable format. Access official statistics on Kenya's economy, agriculture, and governance through a plug-and-play API." } = Astro.props;
+const siteTitle = title.startsWith("+254") || title.includes("—") ? title : `${title} — plus254`;
 ---
 
 <!doctype html>
@@ -22,6 +22,7 @@ const siteTitle = title.startsWith("+254") || title.includes("—") ? title : `$
     <title>{siteTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#1f6f54" />
+    <link rel="canonical" href={Astro.url.href} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

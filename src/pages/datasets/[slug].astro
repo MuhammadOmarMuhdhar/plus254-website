@@ -15,9 +15,30 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const topicLabel = topicNames[entry.data.category] ?? entry.data.category;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": entry.data.title,
+  "description": entry.data.description,
+  "url": `https://plus254.co.ke/datasets/${entry.id}/`,
+  "creator": {
+    "@type": "Organization",
+    "name": "plus254",
+    "url": "https://plus254.co.ke",
+  },
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "application/json",
+    "contentUrl": `https://plus254.co.ke${entry.data.endpoint}`,
+  },
+  "keywords": [topicLabel, "Kenya", entry.data.source],
+  "numberOfRecords": entry.data.rows,
+};
 ---
 
-<BaseLayout title={`${entry.data.title} — plus254`}>
+<BaseLayout title={`${entry.data.title} — plus254`} description={entry.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <DatasetsLayout activeSlug={entry.id}>
     <header class="page-heading">
       <p class="breadcrumb">{topicLabel}</p>
