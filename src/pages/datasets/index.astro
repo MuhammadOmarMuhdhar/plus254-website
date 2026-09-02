@@ -60,7 +60,7 @@ const categoryPlaceholder = "{category}";
                   <a href={`/datasets/${d.id}/`} class="ds-card">
                     <div class="ds-card-header">
                       <span class="ds-card-title">{d.data.title}</span>
-                      <span class="ds-card-arrow" aria-hidden="true">&rarr;</span>
+                      <svg class="ds-card-arrow" viewBox="0 0 16 16" aria-hidden="true"><polyline points="5.5 3 11 8 5.5 13" /></svg>
                     </div>
                     <p class="ds-card-desc">{d.data.description}</p>
                   </a>
@@ -213,10 +213,12 @@ const categoryPlaceholder = "{category}";
     position: absolute;
     top: var(--space-md);
     right: var(--space-md);
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
     color: #1f6f54;
-    font-weight: var(--font-medium);
     transition: transform 0.2s var(--ease-out);
   }
 

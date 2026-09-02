@@ -13,13 +13,14 @@ const content = {
 
 <section class="hero">
   <div class="hero-text">
-    <h1>{content.title}<br />{content.titleBreak}</h1>
+    <!-- <div class="hero-kicker" aria-label="Seed provenance">SEED <span>42eX0B</span> · LEN 128 · SUM 259 · R×5 · SHA 5f48ae</div> -->
+    <h1><span class="hero-title-bold">{content.title}</span><br /><span class="hero-title-light">{content.titleBreak}</span></h1>
     <p>{content.description}</p>
     <div class="hero-btns">
       {
         content.ctas.map((cta) => (
           <a href={cta.href} class={cta.variant === "primary" ? "btn-primary" : "btn-secondary"}>
-            {cta.label} <span aria-hidden="true">→</span>
+            {cta.label} <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><polyline points="5.5 3 11 8 5.5 13" /></svg>
           </a>
         ))
       }
@@ -36,18 +37,53 @@ const content = {
     width: 100%;
   }
 
+  .hero-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: var(--font-regular);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-warm-light);
+    margin-bottom: var(--space-sm);
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    align-items: center;
+  }
+
+  .hero-kicker span {
+    color: var(--color-accent);
+    font-weight: var(--font-semibold);
+  }
+
   .hero h1 {
     font-family: var(--font-serif);
     font-size: var(--text-3xl);
-    font-weight: var(--font-semibold);
-    line-height: 1.25;
+    line-height: 1.08;
     letter-spacing: -0.02em;
-    color: var(--color-warm-dark);
+    color: var(--color-ink);
     margin-bottom: var(--space-xs);
     margin-top: 0;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: none;
+  }
+
+  .hero-title-bold {
+    font-weight: var(--font-bold);
+    letter-spacing: -0.03em;
+    text-decoration: underline;
+    text-decoration-color: var(--color-green-muted);
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.18em;
+  }
+
+  .hero-title-light {
+    font-weight: var(--font-regular);
+    letter-spacing: -0.015em;
+    /* font-style: italic; */
+    color: var(--color-warm-dark);
   }
 
   .hero p {
@@ -79,16 +115,18 @@ const content = {
     text-decoration: none;
     text-align: center;
     border: 1.5px solid var(--color-green);
-    transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart);
+    transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart), border-color 0.2s var(--ease-out);
   }
 
   .hero-btns .btn-primary {
-    background: var(--color-green);
+    background: var(--color-warm-dark);
     color: #fff;
+    border-color: var(--color-warm-dark);
   }
 
   .hero-btns .btn-primary:hover {
-    /* background: transparent; */
+    background: var(--color-ink);
+    border-color: var(--color-ink);
     color: #fff;
     transform: scale(1.03);
     box-shadow: var(--shadow-sm);
@@ -96,12 +134,14 @@ const content = {
 
   .hero-btns .btn-secondary {
     background: transparent;
-    color: var(--color-green);
+    color: var(--color-warm-dark);
+    border-color: var(--color-warm-dark);
   }
 
   .hero-btns .btn-secondary:hover {
-    /* background: var(--color-green); */
-    color: var(--color-green);
+    background: transparent;
+    color: var(--color-ink);
+    border-color: var(--color-green);
     transform: scale(1.03);
     box-shadow: var(--shadow-sm);
   }

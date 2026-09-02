@@ -1,7 +1,9 @@
 ---
 const content = {
   label: "Featured Data",
-  title: "How the Iran war is affecting Kenya's tea industry",
+  titleLead: "How the war in Iran affects",
+  titleEmphasis: "Kenya's tea industry",
+  // titleLead: "tea industry",
   description:
     "Kenya's tea industry generates roughly 23% of Kenya's foreign-exchange earnings. Since the Iran–Israel conflict escalated, unsold tea at the Mombasa auction has doubled.",
   link: { label: "Explore tea data", href: "/datasets/tea/" },
@@ -17,9 +19,9 @@ const content = {
   <div class="featured-inner">
     <div class="featured-text">
       <h2 class="section-label">{content.label}</h2>
-      <h3 class="featured-title">{content.title}</h3>
+      <h3 class="featured-title"><span class="featured-lead">{content.titleLead}</span> <span class="featured-emphasis">{content.titleEmphasis}</span></h3>
       <p class="featured-desc">{content.description}</p>
-      <a href={content.link.href} class="featured-link">{content.link.label} <span aria-hidden="true">→</span></a>
+      <a href={content.link.href} class="featured-link">{content.link.label} <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><polyline points="5.5 3 11 8 5.5 13" /></svg></a>
     </div>
     <div class="featured-chart">
       <div class="chart-wrapper">
@@ -38,14 +40,15 @@ const content = {
   }
 
   .section-label {
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: var(--font-regular);
     color: var(--color-warm-light);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
     display: block;
     margin-bottom: var(--space-smd);
+    font-variant-numeric: tabular-nums;
   }
 
   .featured-inner {
@@ -62,14 +65,25 @@ const content = {
   .featured-title {
     font-family: var(--font-serif);
     font-size: var(--text-xl);
-    font-weight: var(--font-semibold);
     line-height: 1.25;
     letter-spacing: -0.01em;
-    color: var(--color-warm-dark);
+    color: var(--color-ink);
     margin: 0 0 var(--space-sm);
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+  }
+
+  .featured-lead {
+    font-weight: var(--font-bold);
+    letter-spacing: -0.015em;
+  }
+
+  .featured-emphasis {
+    font-weight: var(--font-regular);
+    /* font-style: italic; */
+    color: var(--color-accent);
+    letter-spacing: -0.01em;
   }
 
   .featured-desc {
@@ -84,19 +98,21 @@ const content = {
     font-family: var(--font-sans);
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    color: #1f6f54;
+    color: var(--color-green);
     text-decoration: none;
-    transition: color 0.15s var(--ease-out);
+    border-bottom: 1.5px solid var(--color-accent-muted);
+    padding-bottom: 1px;
+    transition: color 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
     display: inline-block;
   }
 
   .featured-link:hover {
-    text-decoration: underline;
-    color: #145c42;
+    color: var(--color-accent-strong);
+    border-bottom-color: var(--color-accent);
   }
 
   .featured-link:focus-visible {
-    outline: 2px solid #1f6f54;
+    outline: 2px solid var(--color-green);
     outline-offset: 2px;
   }
 

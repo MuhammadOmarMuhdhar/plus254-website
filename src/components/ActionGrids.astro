@@ -63,7 +63,7 @@ const content = {
               <a href={item.href} class="action-item">
                 <div class="action-header">
                   <span class="action-title">{item.title}</span>
-                  <span class="action-arrow" aria-hidden="true">→</span>
+                  <svg class="action-arrow" viewBox="0 0 16 16" aria-hidden="true"><polyline points="5.5 3 11 8 5.5 13" /></svg>
                 </div>
                 <p class="action-desc">{item.desc}</p>
               </a>
@@ -164,11 +164,13 @@ const content = {
     position: absolute;
     top: var(--space-md);
     right: var(--space-md);
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
     color: #1f6f54;
-    font-weight: var(--font-medium);
-    transition: transform 0.2s var(--ease-out);
+    transition: transform 0.2s var(--ease-out), color 0.2s var(--ease-out);
   }
 
   .action-item:hover .action-arrow {
@@ -195,6 +197,7 @@ const content = {
 
     .action-grid--medium {
       grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
     }
 
     .action-item {

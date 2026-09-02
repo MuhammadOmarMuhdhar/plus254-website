@@ -79,12 +79,16 @@ const currentPath = Astro.url.pathname;
 <style>
   .header {
     padding-top: 2.3rem;
-    border-bottom: 1.5px solid rgba(108, 185, 153, 0.35);
-    background-color: #ffffff;
+    border-bottom: 1.5px solid var(--color-green-muted);
+    background-color: var(--color-paper);
     background-image:
-      linear-gradient(rgba(108, 185, 153, 0.15) 1px, transparent 1px),
-      linear-gradient(to right, rgba(108, 185, 153, 0.15) 1px, transparent 1px);
-    background-size: 20px 20px;
+      linear-gradient(var(--color-green-grid) 1px, transparent 1px),
+      linear-gradient(to right, var(--color-green-grid) 1px, transparent 1px),
+      repeating-linear-gradient(42deg, var(--color-green-grid-diagonal) 0 1px, transparent 1px 20px);
+    background-size:
+      20px 20px,
+      20px 20px,
+      100% 100%;
     overflow-wrap: break-word;
     word-wrap: break-word;
   }
@@ -107,7 +111,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__logo:focus-visible {
-    outline: 2px solid #1f6f54;
+    outline: 2px solid var(--color-green);
     outline-offset: 2px;
   }
 
@@ -141,19 +145,19 @@ const currentPath = Astro.url.pathname;
 
   .header__link:hover {
     text-decoration: none;
-    border-bottom: 2px solid #1f6f54;
-    color: var(--color-warm-dark);
+    border-bottom: 2px solid var(--color-accent);
+    color: var(--color-ink);
   }
 
   .header__link:focus-visible {
-    outline: 2px solid #1f6f54;
+    outline: 2px solid var(--color-green);
     outline-offset: 2px;
     border-bottom-color: transparent;
   }
 
   .header__link--active {
-    border-bottom: 2px solid #1f6f54;
-    color: var(--color-warm-dark);
+    border-bottom: 2px solid var(--color-green);
+    color: var(--color-ink);
   }
 
   .header__search {
@@ -168,11 +172,11 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__search:hover {
-    color: #1f6f54;
+    color: var(--color-accent);
   }
 
   .header__search:focus-visible {
-    outline: 2px solid #1f6f54;
+    outline: 2px solid var(--color-green);
     outline-offset: 2px;
   }
 
@@ -197,7 +201,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__drawer:focus-visible {
-    outline: 2px solid #1f6f54;
+    outline: 2px solid var(--color-green);
     outline-offset: 2px;
   }
 
@@ -237,7 +241,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__drawer-link:focus-visible {
-    outline: 2px solid #1f6f54;
+    outline: 2px solid var(--color-green);
     outline-offset: -2px;
   }
 

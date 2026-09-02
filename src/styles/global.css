@@ -38,11 +38,16 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   font-kerning: normal;
-  background-color: #ffffff;
+  background-color: var(--color-paper);
+  /* 42° Archive — orthogonal 20px grid (11%) + 42° diagonal whisper (3.5%) from seed's opening 42 */
   background-image:
-    linear-gradient(rgba(108, 185, 153, 0.15) 1px, transparent 1px),
-    linear-gradient(to right, rgba(108, 185, 153, 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
+    linear-gradient(var(--color-green-grid) 1px, transparent 1px),
+    linear-gradient(to right, var(--color-green-grid) 1px, transparent 1px),
+    repeating-linear-gradient(42deg, var(--color-green-grid-diagonal) 0 1px, transparent 1px 20px);
+  background-size:
+    20px 20px,
+    20px 20px,
+    100% 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
@@ -84,8 +89,18 @@ code {
   word-break: break-word;
 }
 
+.arrow {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  vertical-align: -0.12em;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
 :focus-visible {
-  outline: 2px solid #1f6f54;
+  outline: 2px solid var(--color-green);
   outline-offset: 2px;
 }
 

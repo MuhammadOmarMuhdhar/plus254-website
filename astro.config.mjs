@@ -9,5 +9,10 @@ import pagefind from 'astro-pagefind';
 export default defineConfig({
   site: 'https://plus254.co.ke',
   base: '/',
+  markdown: {
+    shikiConfig: {
+      theme: 'github-light',
+    },
+  },
   integrations: [mdx(), sitemap(), pagefind()]
 });
